@@ -55,10 +55,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 require("./config/passport")(passport);
 
-app.post("/login", passport.authenticate("local"), (req, res) => {
-  res.send("Successfully Authenticated")
+app.post("/api/login", passport.authenticate("local"), (req, res) => {
+  res.send("success")
 });
-app.post("/register", (req, res) => {
+app.post("/api/register", (req, res) => {
   User.findOne({ username: req.body.username }, async (err, doc) => {
     if (err) throw err;
     if (doc) res.send("User Already Exists");
@@ -74,7 +74,7 @@ app.post("/register", (req, res) => {
     }
   });
 });
-app.get("/user", (req, res) => {
+app.get("/api/user", (req, res) => {
   res.send(req.user);
 });
 
