@@ -27,9 +27,14 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path="/">
-          <Home>
-
-          </Home>
+          <Home />
+        </Route>
+        <Route exact path="/login">
+          <Login title="Log In" submit="Log in" />
+          <p style={{textAlign: "center"}}>New User? Register <a href="/register">Here</a></p>
+        </Route>
+        <Route exact path="/register">
+          <Login title="Sign Up" submit= "Sign up" />
         </Route>
         { ctx ? (
           <Route exact path="/welcome">
