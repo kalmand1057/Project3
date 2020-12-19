@@ -1,45 +1,32 @@
-import React from "react";
-import { Button, Container, Grid, Header, Form} from 'semantic-ui-react';
+import React, { useState } from "react";
+import Form from "../components/Form";
+import Axios from "axios";
 
-const styles = {
-    heading: {
-        margin: 250
-    },
-    html: {
-        backgroundImage: "url(/moped.jpeg)",
-        backgroundRepeat: 'no-repeat',
-        // backgroundPosition: 'center',
-        // width: '101vw',
-        height: '102vh'
-    }
-}
+export default function Login() {
+    const [loginUsername, setLoginUsername] = useState("");
+    const [loginPassword, setLoginPassword] = useState("");
 
-export default function Login(props) {
+    const login = () => {
+        Axios({
+          method: "POST",
+          data: {
+            username: loginUsername,
+            password: loginPassword,
+          },
+          withCredentials: true,
+          url: "http://localhost:3001/api/login",
+        }).then((res) => console.log(res));
+      };
     return (
-        <div style={styles.html}>
-        <Grid centered columns={2}>
-            <Container style={styles.heading}>
-                <Header as='h1' inverted>Getaway Guru</Header>
-                <Header as='h3' inverted>{props.title}</Header>
-                <Form>
-                    <Form.Group widths='equal'>
-                        <Form.Input
-                            fluid
-                            id='form-subcomponent-shorthand-input-email'
-                            // label='email'
-                            placeholder='Email'
-                        />
-                        <Form.Input
-                            fluid
-                            id='form-subcomponent-shorthand-input-password'
-                            // label='password'
-                            placeholder='Password'
-                        />
-                    </Form.Group>
-                </Form>
-                <Button inverted>{props.submit}</Button>
-            </Container>
-        </Grid>
-        </div>
+        <div>
+            <Form 
+            title="Log In"
+            submit="Log in"
+            handleEmail={(e) => setLoginUsername(e.target.value)}
+            handlePassword={(e) => setLoginPassword(e.target.value)}
+            handleSubmit={login}
+            />
+            <p style={{textAlign: "center"}}>New User? Register <a href="/register">Here</a></p>
+         </div>
     )
 }
