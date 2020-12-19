@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Form from "./pages/Form";
 import Axios from "axios";
 import "./App.css";
 import Home from "./pages/Home";
@@ -29,7 +28,7 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Home>
-            
+
           </Home>
         </Route>
         { ctx ? (

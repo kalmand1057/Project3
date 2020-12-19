@@ -36,7 +36,7 @@
 //   return bcrypt.compareSync(password, this.password) 
 // }
 
-module.exports = mongoose.model('User', userSchema)
+// module.exports = mongoose.model('User', userSchema)
 const mongoose = require("mongoose");
 const user = new mongoose.Schema({
   username: String,
