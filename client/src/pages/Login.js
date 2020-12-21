@@ -14,7 +14,7 @@ export default function Login() {
             password: loginPassword,
           },
           withCredentials: true,
-          url: "http://localhost:3001/api/login",
+          url: "/api/login",
         }).then((res) => console.log(res));
       };
     return (
