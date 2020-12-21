@@ -14,7 +14,7 @@ export default function Register() {
             password: registerPassword,
           },
           withCredentials: true,
-          url: "http://localhost:3001/api/register",
+          url: "/api/register",
         }).then((res) => {console.log(res); window.location.replace("/login");});
       };
     return (
