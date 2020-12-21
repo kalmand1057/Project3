@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { myContext } from "./utils/LoginContext";
+import Destination from "./pages/Destination";
 
 function App() {
   const ctx = useContext(myContext);
@@ -35,6 +36,9 @@ function App() {
         </Route>
         <Route exact path="/register">
           <Login title="Sign Up" submit= "Sign up" />
+        </Route>
+        <Route exact path="/destinations">
+            <Destination />
         </Route>
         { ctx ? (
           <Route exact path="/welcome">
