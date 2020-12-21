@@ -1,6 +1,22 @@
 import React, { useState } from "react";
 import Form from "../components/Form";
 import Axios from "axios";
+import { Button, Container, Grid, Header} from 'semantic-ui-react';
+
+const styles = {
+  heading: {
+      margin: 0
+  },
+  html: {
+      backgroundImage: "url(/sunsetriver.jpeg)",
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      width: '101vw',
+      height: '102vh'
+  }
+  //W3SCHOOLS How to full page image
+  //W3SCHOOLS How to half page image
+}
 
 export default function Login() {
     const [loginUsername, setLoginUsername] = useState("");
@@ -14,11 +30,12 @@ export default function Login() {
             password: loginPassword,
           },
           withCredentials: true,
-          url: "http://localhost:3001/api/login",
+          url: "/api/login",
         }).then((res) => console.log(res));
       };
     return (
-        <div>
+        <div style={styles.html}>
+            <Container style={styles.heading}>
             <Form 
             title="Log In"
             submit="Log in"
@@ -27,6 +44,7 @@ export default function Login() {
             handleSubmit={login}
             />
             <p style={{textAlign: "center"}}>New User? Register <a href="/register">Here</a></p>
+            </Container>
          </div>
     )
 }
