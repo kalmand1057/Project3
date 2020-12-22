@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === "production") {
 // Send every other request to the React app
 // Define any API routes before this runs
 
-mongoose.connect("mongodb://localhost:27017/ggusers", { 
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/ggusers", { 
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
