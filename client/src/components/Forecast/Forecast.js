@@ -20,7 +20,7 @@ const Forecast = () => {
           mode: 'xml, html'
         },
         headers: {
-          'x-rapidapi-key': '3d40ab63d1msh75710ea8155d119p192fdcjsn7fa927f90a06',
+          'x-rapidapi-key': process.env.WEATHER_API,
           'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com'
         }
       };
