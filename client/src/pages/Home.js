@@ -21,7 +21,7 @@ const Home = () => (
     <Grid centered columns={2}>
         <Container style={styles.heading}>
         <Header as='h1' inverted>Start your adventure with us.</Header>
-        <Button inverted>START HERE</Button>
+        <Button inverted href="/register">START HERE</Button>
         </Container>
     </Grid>
     </div>
