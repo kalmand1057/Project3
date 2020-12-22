@@ -35,7 +35,7 @@ function App() {
         </Route>
         { ctx ? (
           <Route exact path="/welcome">
-            <p>you made it!</p>
+            <p>You made it!</p>
           </Route>
         ) : (
           <>
