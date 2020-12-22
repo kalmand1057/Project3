@@ -1,0 +1,65 @@
+.intro {
+  -webkit-tap-highlight-color: transparent;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 25px;
+  box-sizing: inherit;
+  display: block;
+  background: url(https://images.pexels.com/photos/69866/pexels-photo-69866.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)
+    no-repeat;
+  background-size: cover;
+  color: #fff;
+  padding: 150px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  -webkit-tap-highlight-color: transparent;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 25px;
+  color: #fff;
+  box-sizing: inherit;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  width: 100%;
+}
+
+.countdown {
+  width: 100%;
+  margin: 25px auto;
+  margin-top: 25px;
+  margin-right: auto;
+  margin-bottom: 25px;
+  margin-left: auto;
+  display: inline-block;
+}
+
+.countdown .time-count .time-entry {
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Monsterrat", sans-serif;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: inherit;
+  margin: 15px;
+  padding: 20px;
+  font-weight: 400;
+  color: #fff;
+  line-height: 22px;
+  position: relative;
+  display: inline-block;
+  width: 130px;
+  height: 115px;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 5px 50px -10px #000;
+}
