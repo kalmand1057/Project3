@@ -5,7 +5,7 @@ import { Button, Container, Grid, Header} from 'semantic-ui-react';
 
 const styles = {
   heading: {
-      margin: 0
+      margin: 200
   },
   html: {
       backgroundImage: "url(/sunsetriver.jpeg)",
@@ -34,8 +34,9 @@ export default function Login() {
         }).then(window.location.replace("/welcome"));
       };
     return (
-        <div style={styles.html}>
-            <Container style={styles.heading}>
+      <div style={styles.html}>
+        <Grid centered columns={2}>
+        <Container style={styles.heading}>
             <Form 
             title="Log In"
             submit="Log in"
@@ -45,6 +46,7 @@ export default function Login() {
             />
             <p style={{textAlign: "center"}}>New User? Register <a href="/register">Here</a></p>
             </Container>
-         </div>
+        </Grid>    
+      </div>
     )
 }
