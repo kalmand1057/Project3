@@ -11,21 +11,21 @@ import axios from "axios";
 const Forecast = () => {
     let [responseObj, setResponseObj] = useState({});
     const options = {
-        method: 'GET',
-        url: 'https://community-open-weather-map.p.rapidapi.com/weather',
+        method: "GET",
+        url: "https://community-open-weather-map.p.rapidapi.com/weather",
         params: {
-          q: 'Seattle',
-          lat: '0',
-          lon: '0',
-          callback: 'test',
-          id: '2172797',
-          lang: 'null',
+          q: "Seattle",
+          lat: "0",
+          lon: "0",
+          callback: "test",
+          id: "2172797",
+          lang: "null",
           units: '"metric" or "imperial"',
-          mode: 'xml, html'
+          mode: "xml, html"
         },
         headers: {
-          'x-rapidapi-key': process.env.WEATHER_API,
-          'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com'
+          "x-rapidapi-key": process.env.WEATHER_API,
+          "x-rapidapi-host": 'community-open-weather-map.p.rapidapi.com'
         }
       };
     function getForecast () {
