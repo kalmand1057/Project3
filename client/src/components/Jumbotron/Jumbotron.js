@@ -20,8 +20,7 @@ function Jumbotron({ children }) {
                 <div className="row text-center">
                     <div className="col-md-12 col-sm-12 col-xs-12">
                         <div className="heading-count">
-                            <h2>COUNTDOWN</h2>
-                            <p>Your Adventure Begins In...</p>
+                            <h2>YOUR ADVENTURE BEGINS IN ...</h2>
                         </div>
                     </div>
                     <div className="col-md-12 col-sm-12 col-xs-12">

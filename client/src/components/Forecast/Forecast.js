@@ -13,21 +13,20 @@ const Forecast = () => {
           q: city,
           lat: '0',
           lon: '0',
-          callback: 'test',
           id: '2172797',
           lang: 'null',
           units: unit,
           mode: 'xml, html'
         },
         headers: {
-          'x-rapidapi-key': process.env.WEATHER_API,
+          'x-rapidapi-key': 'f30827c038mshe9a8b31a25c3193p15c010jsn00699ab3d33e',
           'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com'
         }
       };
     function getForecast (e) {
         e.preventDefault();
         axios.request(options).then(function (response) {
-            console.log(response.data);
+            console.log(response);
             setResponseObj(response.data);
         }).catch(function (error) {
             console.error(error);

@@ -23,7 +23,7 @@ const Welcome = () => (
         <Header as='h1' inverted>Welcome</Header>
         <Button inverted>Current Trip</Button>
         <Button inverted>Saved Destinations</Button>
-        <Button inverted>New Destination</Button>
+        <Button inverted href="/newdestination">New Destination</Button>
         </Container>
     </Grid>
     </div>
