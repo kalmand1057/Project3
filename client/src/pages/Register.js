@@ -1,6 +1,13 @@
 import React, { useState } from "react";
-import Form from "../components/Form";
+import FormA from "../components/FormA";
 import Axios from "axios";
+import { Container, Grid } from 'semantic-ui-react';
+
+const styles = {
+  heading: {
+      margin: 190
+  }
+}
 
 export default function Register() {
     const [registerUsername, setRegisterUsername] = useState("");
@@ -18,14 +25,19 @@ export default function Register() {
         }).then((res) => {console.log(res); window.location.replace("/login");});
       };
     return (
-        <div>
-            <Form 
+      <div>
+        <Grid centered columns={2}>
+          <Container style={styles.heading}>
+            <FormA 
               title="Sign Up"
               submit= "Sign up"
               handleEmail={(e) => setRegisterUsername(e.target.value)}
               handlePassword={(e) => setRegisterPassword(e.target.value)}
               handleSubmit={register}
-              />
-         </div>
+            />
+            {/* <Header as='h4' inverted style={{textAlign: "center"}}>Already have an account? Login <a href="/login">Here</a></Header> */}
+          </Container>
+        </Grid>
+      </div>
     )
 }

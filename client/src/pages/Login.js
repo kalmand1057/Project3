@@ -1,21 +1,12 @@
 import React, { useState } from "react";
-import Form from "../components/Form";
+import FormA from "../components/FormA";
 import Axios from "axios";
-import { Button, Container, Grid, Header} from 'semantic-ui-react';
+import { Container, Grid, Header} from 'semantic-ui-react';
 
 const styles = {
   heading: {
-      margin: 200
-  },
-  html: {
-      backgroundImage: "url(/sunsetriver.jpeg)",
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-      width: '101vw',
-      height: '102vh'
+      margin: 190
   }
-  //W3SCHOOLS How to full page image
-  //W3SCHOOLS How to half page image
 }
 
 export default function Login() {
@@ -34,18 +25,18 @@ export default function Login() {
         }).then(window.location.replace("/welcome"))
       };
     return (
-      <div style={styles.html}>
+      <div>
         <Grid centered columns={2}>
-        <Container style={styles.heading}>
-            <Form 
+          <Container style={styles.heading}>
+            <FormA 
             title="Log In"
             submit="Log in"
             handleEmail={(e) => setLoginUsername(e.target.value)}
             handlePassword={(e) => setLoginPassword(e.target.value)}
             handleSubmit={login}
             />
-            <p style={{textAlign: "center"}}>New User? Register <a href="/register">Here</a></p>
-            </Container>
+            <Header as='h4' inverted style={{textAlign: "center"}}>New User? Register <a href="/register">Here</a></Header>
+          </Container>
         </Grid>    
       </div>
     )
