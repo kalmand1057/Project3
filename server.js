@@ -55,7 +55,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 require("./config/passport")(passport);
 
-app.post("/api/login", passport.authenticate("local"), (req, res) => {
+app.post("/api/login", passport.authenticate("local", {successRedirect: "/welcome", failureRedirect: '/login', failureFlash: true}), (req, res) => {
   res.send("success")
 });
 
