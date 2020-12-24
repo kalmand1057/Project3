@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import Forecast from "../components/Forecast/Forecast";
 
 export default function Destination() {
