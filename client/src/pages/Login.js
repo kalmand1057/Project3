@@ -31,7 +31,7 @@ export default function Login() {
           },
           withCredentials: true,
           url: "/api/login",
-        }).then(window.location.replace("/welcome"));
+        }).then(window.location.replace("/welcome"))
       };
     return (
       <div style={styles.html}>

@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Button } from "../Button";
 import { Link } from "react-router-dom";
+import { myContext} from "../../utils/LoginContext";
+import Axios from "axios";
 import "./Navbar.css";
 
 function Navbar() {
@@ -10,6 +12,8 @@ function Navbar() {
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
+  const ctx = useContext(myContext)
+
   const showButton = () => {
     if (window.innerWidth <= 960) {
       setButton(false);
@@ -17,7 +21,11 @@ function Navbar() {
       setButton(true);
     }
   };
-
+  const logout = () => {
+    Axios.get("/logout", {
+      withCredentials: true
+    }).then(window.location.replace("/"))
+  }
   useEffect(() => {showButton();}, []);
 
   window.addEventListener("resize", showButton);
@@ -34,41 +42,49 @@ function Navbar() {
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
-            <li className="nav-item">
-              <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-                Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                to="/destinations"
-                className="nav-links"
-                onClick={closeMobileMenu}
-              >
-                Destinations
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                to="/services"
-                className="nav-links"
-                onClick={closeMobileMenu}
-              >
-                Services
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                to="/destinations"
-                className="nav-links-mobile"
-                onClick={closeMobileMenu}
-              >
-                Log In
-              </Link>
-            </li>
+            { ctx ? (
+              <>
+                <li className="nav-item">
+                  <Link
+                    to="/Welcome"
+                    className="nav-links"
+                    onClick={closeMobileMenu}
+                  >
+                    Welcome
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    to="/destinations"
+                    className="nav-links"
+                    onClick={closeMobileMenu}
+                  >
+                    Destinations
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    to="/services"
+                    className="nav-links"
+                    onClick={closeMobileMenu}
+                  >
+                    Services
+                  </Link>
+                </li>
+                {button && <Button buttonStyle="btn--outline" onClick={logout} linkTo="/logout">Log Out</Button>}
+              </>
+            ) : (
+              <>
+                <li className="nav-item">
+                  <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+                    Home
+                  </Link>
+                </li>
+                {button && <Button buttonStyle="btn--outline" linkTo="/login">Log In</Button>}
+              </>
+            )}
           </ul>
-          {button && <Button buttonStyle="btn--outline">Log In</Button>}
+
         </div>
       </nav>
     </>

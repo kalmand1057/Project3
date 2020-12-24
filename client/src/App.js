@@ -6,6 +6,8 @@ import "./App.css";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Welcome from "./pages/Welcome";
+import WrongLogin from "./pages/WrongLogin";
 import { myContext } from "./utils/LoginContext";
 import Destination from "./pages/Destination";
 
@@ -35,10 +37,13 @@ function App() {
         </Route>
         { ctx ? (
           <Route exact path="/welcome">
-            <p>You made it!</p>
+            <Welcome />
           </Route>
         ) : (
           <>
+          <Route exact path="/welcome">
+            <WrongLogin />
+          </Route>
           <Route exact path="/login">
             <Login />
           </Route>
