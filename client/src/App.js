@@ -9,6 +9,7 @@ import Register from "./pages/Register";
 import { myContext } from "./utils/LoginContext";
 import Destination from "./pages/Destination";
 
+
 function App() {
   const ctx = useContext(myContext);
   const [data, setData] = useState(null);
@@ -23,6 +24,7 @@ function App() {
       console.log(res.data);
     });
   };
+
   return (
     <Router>
       <Navbar />
