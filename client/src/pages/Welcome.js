@@ -4,11 +4,7 @@ import { Button, Container, Grid, Header } from 'semantic-ui-react';
 
 const styles = {
     heading: {
-<<<<<<< HEAD
         margin: 120
-=======
-        margin: 250
->>>>>>> main
     }
 }
 
