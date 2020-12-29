@@ -20,7 +20,7 @@ export default function FormA(props) {
                         <input placeholder="email" onChange={props.handleEmail}></input>
                     </Form.Field>
                     <Form.Field fluid>
-                    <input placeholder="password" type= "password" onChange={props.handlePassword}></input>
+                    <input placeholder="password" type="password" onChange={props.handlePassword}></input>
                     </Form.Field>
                 </Form.Group>
             </Form>

@@ -36,16 +36,15 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/destinations">
-            <Destination />
-        </Route>
-        <Route exact path="/search">
-            <Search />
-          </Route>
         { ctx ? (
-          <Route exact path="/welcome">
-            <Welcome />
-          </Route>
+          <>
+            <Route exact path="/welcome">
+              <Welcome />
+            </Route>
+            <Route exact path="/destinations">
+              <Destination />
+            </Route>
+          </>
         ) : (
           <>
           <Route exact path="/welcome">
