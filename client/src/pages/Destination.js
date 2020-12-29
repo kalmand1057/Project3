@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import Forecast from "../components/Forecast/Forecast";
 import Jumbotron from "../components/Jumbotron/Jumbotron"
 

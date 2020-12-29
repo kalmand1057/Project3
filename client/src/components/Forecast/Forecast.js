@@ -7,8 +7,8 @@ const Forecast = () => {
     let [unit, setUnit] = useState("imperial");
     let [responseObj, setResponseObj] = useState({});
     const options = {
-        method: 'GET',
-        url: 'https://community-open-weather-map.p.rapidapi.com/weather',
+        method: "GET",
+        url: "https://community-open-weather-map.p.rapidapi.com/weather",
         params: {
           q: city,
           lat: '0',
