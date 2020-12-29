@@ -3,6 +3,7 @@ import FormA from "../components/FormA";
 import Axios from "axios";
 import { Container, Grid, Header} from 'semantic-ui-react';
 
+
 const styles = {
   heading: {
       margin: 190
