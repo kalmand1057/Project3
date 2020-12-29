@@ -7,9 +7,11 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Welcome from "./pages/Welcome";
+import Search from "./pages/Search";
 import WrongLogin from "./pages/WrongLogin";
 import { myContext } from "./utils/LoginContext";
 import Destination from "./pages/Destination";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -37,6 +39,9 @@ function App() {
         <Route exact path="/destinations">
             <Destination />
         </Route>
+        <Route exact path="/search">
+            <Search />
+          </Route>
         { ctx ? (
           <Route exact path="/welcome">
             <Welcome />
@@ -55,6 +60,7 @@ function App() {
           </>
         )}
       </Switch>
+      <Footer />
     </Router>
   );
 }
