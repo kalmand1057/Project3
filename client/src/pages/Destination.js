@@ -16,7 +16,6 @@ const styles = {
 export default function Destination() {
  return (
    <div className="App">
-<<<<<<< HEAD
      <Container style={styles.heading}>
      <Header as='h1' inverted style={{textAlign: "center"}}>Destination</Header>
 
@@ -35,6 +34,7 @@ export default function Destination() {
       <Segment.Group horizontal style={styles.bkgd}>
       <Segment>
       <Header inverted style={{textAlign: "center"}}>Budget for Trip</Header>
+      <BudgetChart />
       </Segment>
 
       <Segment>
@@ -44,15 +44,6 @@ export default function Destination() {
      </Container>
        
      
-=======
-     <header className="App-header">
-       <h1>Destination</h1>
-     </header>
-     <main>
-       <Forecast />
-     </main>
-     <BudgetChart />
->>>>>>> main
      <footer>
        Page created by yournamehere
      </footer>
