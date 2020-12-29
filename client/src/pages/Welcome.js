@@ -26,6 +26,7 @@ const Welcome = () => (
         <Button inverted>New Destination</Button>
         </Container>
     </Grid>
+    <iframe src="https://en.wikipedia.org/wiki/Main_Page" height="500" width="700" title="Wiki"></iframe>
     </div>
 );
 
