@@ -39,7 +39,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "/",
     credentials: true,
   })
 );
@@ -83,6 +83,10 @@ app.get('/logout', function(req, res){
 
 app.get("/api/user", (req, res) => {
   res.send(req.user);
+});
+app.get("/api/budget", (req, res) => {
+  User.findOne({username: req.user.username})
+  .then(budget => res.json(budget));
 });
 
 app.listen(PORT, () => {
