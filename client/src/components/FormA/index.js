@@ -13,8 +13,13 @@ export default function FormA(props) {
                     <Form.Field>
                         <input class="box" type="text" placeholder="email" onChange={props.handleEmail}></input>
                     </Form.Field>
+<<<<<<< HEAD
                     <Form.Field>
                         <input class="box" type="password" placeholder="password" onChange={props.handlePassword}></input>
+=======
+                    <Form.Field fluid>
+                    <input placeholder="password" type="password" onChange={props.handlePassword}></input>
+>>>>>>> main
                     </Form.Field>
                 </Form.Group>
             </Form>
