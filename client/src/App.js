@@ -7,11 +7,16 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Welcome from "./pages/Welcome";
+import Search from "./pages/Search";
 import WrongLogin from "./pages/WrongLogin";
 import { myContext } from "./utils/LoginContext";
 import Destination from "./pages/Destination";
+<<<<<<< HEAD
 import NewDestination from "./pages/NewDestination";
 import Current from "./pages/Current";
+=======
+import Footer from "./components/Footer";
+>>>>>>> main
 
 
 function App() {
@@ -36,11 +41,9 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/destinations">
-            <Destination />
-        </Route>
         { ctx ? (
           <>
+<<<<<<< HEAD
           <Route exact path="/welcome">
             <Welcome />
           </Route>
@@ -50,6 +53,14 @@ function App() {
           <Route exact path="/current">
             <Current />
           </Route>
+=======
+            <Route exact path="/welcome">
+              <Welcome />
+            </Route>
+            <Route exact path="/destinations">
+              <Destination />
+            </Route>
+>>>>>>> main
           </>
         ) : (
           <>
@@ -65,6 +76,7 @@ function App() {
           </>
         )}
       </Switch>
+      <Footer />
     </Router>
   );
 }

@@ -3,8 +3,9 @@ import { Button, Container, Grid, Header } from 'semantic-ui-react';
 
 const styles = {
     heading: {
-        margin: 70
+        margin: 250
     },
+<<<<<<< HEAD
     html: {
         backgroundImage: "url(/sunsetriver.jpeg)",
         backgroundRepeat: 'no-repeat',
@@ -12,8 +13,17 @@ const styles = {
         width: '101vw',
         height: '102vh'
     }
+=======
+    // html: {
+    //     backgroundImage: "url(/sunsetriver.jpeg)",
+    //     backgroundRepeat: 'no-repeat',
+    //     backgroundPosition: 'center',
+    //     width: '101vw',
+    //     height: '102vh'
+    // }
     //W3SCHOOLS How to full page image
     //W3SCHOOLS How to half page image
+>>>>>>> main
 }
 
 const Search = () => (

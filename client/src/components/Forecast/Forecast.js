@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Conditions from "../Conditions/Conditions";
 import axios from "axios";
+import { Button, Header} from 'semantic-ui-react';
 
 const Forecast = () => {
     let [city, setCity] = useState("");
@@ -49,6 +50,7 @@ const Forecast = () => {
 
     return (
         <div>
+<<<<<<< HEAD
             <h2>Find Current Weather Conditions</h2>
             <form onSubmit={getForecast}>
                 <input
@@ -82,6 +84,10 @@ const Forecast = () => {
                 <button type="submit">Get Forecast</button>
 
             </form>
+=======
+            <Header Header as='h3' inverted style={{textAlign: "center"}}>Find Current Weather Conditions</Header>
+            <Button inverted onClick={getForecast}>Get Forecast</Button>
+>>>>>>> main
             <Conditions
                 responseObj={responseObj}
                 />
