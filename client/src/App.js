@@ -6,8 +6,15 @@ import "./App.css";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Welcome from "./pages/Welcome";
+import Search from "./pages/Search";
+import WrongLogin from "./pages/WrongLogin";
 import { myContext } from "./utils/LoginContext";
 import Destination from "./pages/Destination";
+import NewDestination from "./pages/NewDestination";
+import Current from "./pages/Current";
+import Footer from "./components/Footer";
+
 
 function App() {
   const ctx = useContext(myContext);
@@ -23,6 +30,7 @@ function App() {
       console.log(res.data);
     });
   };
+
   return (
     <Router>
       <Navbar />
@@ -30,15 +38,26 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/destinations">
-            <Destination />
-        </Route>
         { ctx ? (
+          <>
           <Route exact path="/welcome">
-            <p>You made it!</p>
+            <Welcome />
           </Route>
+          <Route exact path="/newdestination">
+            <NewDestination />
+          </Route>
+          <Route exact path="/current">
+            <Current />
+          </Route>
+            <Route exact path="/destinations">
+              <Destination />
+            </Route>
+          </>
         ) : (
           <>
+          <Route exact path="/welcome">
+            <WrongLogin />
+          </Route>
           <Route exact path="/login">
             <Login />
           </Route>
@@ -48,6 +67,7 @@ function App() {
           </>
         )}
       </Switch>
+      <Footer />
     </Router>
   );
 }

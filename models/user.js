@@ -41,6 +41,13 @@ const mongoose = require("mongoose");
 const user = new mongoose.Schema({
   username: String,
   password: String,
+  budget: {
+    maxBudget: {type: Number, default: 0},
+    airFare: {type: Number, default: 0},
+    dining: {type: Number, default: 0},
+    lodging: {type: Number, default: 0},
+    misc: {type: Number, default: 0}
+  }
 });
 
 module.exports = mongoose.model("User", user);

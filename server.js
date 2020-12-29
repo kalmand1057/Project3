@@ -39,7 +39,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "/",
     credentials: true,
   })
 );
@@ -55,9 +55,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 require("./config/passport")(passport);
 
-app.post("/api/login", passport.authenticate("local"), (req, res) => {
+app.post("/api/login", passport.authenticate("local", {successRedirect: "/welcome", failureRedirect: '/login', failureFlash: true}), (req, res) => {
   res.send("success")
 });
+
 app.post("/api/register", (req, res) => {
   User.findOne({ username: req.body.username }, async (err, doc) => {
     if (err) throw err;
@@ -74,23 +75,19 @@ app.post("/api/register", (req, res) => {
     }
   });
 });
+
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+
 app.get("/api/user", (req, res) => {
   res.send(req.user);
 });
-
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
-// app.get("/", (req, res) => {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
-// app.get("/login", (req, res) => {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
-
-// app.get("/register", (req, res) => {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+app.get("/api/budget", (req, res) => {
+  User.findOne({username: req.user.username})
+  .then(budget => res.json(budget));
+});
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
