@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, Component } from "react";
 import { Button } from "../Button";
 import { Link } from "react-router-dom";
 import { myContext} from "../../utils/LoginContext";
 import Axios from "axios";
 import "./Navbar.css";
+// import { Input, Menu, Button, Container, Header } from 'semantic-ui-react'
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -71,7 +72,16 @@ function Navbar() {
                     Services
                   </Link>
                 </li>
-                {button && <Button buttonStyle="btn--outline" onClick={logout} linkTo="/logout">Log Out</Button>}
+                <li className="nav-item">
+                  <Link
+                    to="/logout"
+                    className="nav-links"
+                    onClick={closeMobileMenu}
+                  >
+                    Log Out
+                  </Link>
+                </li>
+                {/* {button && <Button buttonStyle="btn--outline" onClick={logout} linkTo="/logout">Log Out</Button>} */}
               </>
             ) : (
               <>
@@ -80,7 +90,16 @@ function Navbar() {
                     Home
                   </Link>
                 </li>
-                {button && <Button buttonStyle="btn--outline" linkTo="/login">Log In</Button>}
+                <li className="nav-item">
+                  <Link
+                    to="/login"
+                    className="nav-links"
+                    onClick={closeMobileMenu}
+                  >
+                    Log In
+                  </Link>
+                </li>
+                {/* {button && <Button buttonStyle="btn--outline" linkTo="/login">Log In</Button>} */}
               </>
             )}
           </ul>
@@ -88,7 +107,38 @@ function Navbar() {
         </div>
       </nav>
     </>
+
   );
 }
 
 export default Navbar;
+
+
+
+// export default class Navbar extends Component {
+//   state = { activeItem: "/" }
+
+//   handleClick = (e, { name }) => this.setState({ activeItem: name })
+
+//   render() {
+//     const { activeItem } = this.state
+
+//     return (
+//       <Container>
+//       <Menu secondary>
+//       <Menu.Item 
+//       name="GetawayGuru"
+//       active={ activeItem === "/home" }
+//       onClick={this.handleItemClick}
+//       ><Header as="h4" inverted>Getaway Guru</Header>
+//       </Menu.Item>
+//       <Menu.Menu position="right">
+//         <Menu.Item>
+//         <Button inverted href="/login">Log In</Button>
+//         </Menu.Item>
+//       </Menu.Menu>
+//     </Menu>
+//     </Container>
+//     )
+//   }
+// }

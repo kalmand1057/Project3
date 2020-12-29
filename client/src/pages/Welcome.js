@@ -4,10 +4,12 @@ import { Button, Container, Grid, Header } from 'semantic-ui-react';
 
 const styles = {
     heading: {
+<<<<<<< HEAD
+        margin: 120
+=======
         margin: 250
+>>>>>>> main
     }
-    //W3SCHOOLS How to full page image
-    //W3SCHOOLS How to half page image
 }
 
 const Welcome = () => (

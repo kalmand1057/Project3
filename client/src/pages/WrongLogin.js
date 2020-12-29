@@ -18,7 +18,7 @@ const styles = {
 }
 
 const WrongLogin = () => (
-    <div style={styles.html}>
+    <div>
     <Grid centered columns={2}>
         <Container style={styles.heading}>
         <Header as='h1' inverted>You are Not Logged In!</Header>

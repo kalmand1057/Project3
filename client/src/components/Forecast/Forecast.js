@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Conditions from "../Conditions/Conditions";
 import axios from "axios";
+import { Button, Header} from 'semantic-ui-react';
 
 
 
@@ -54,8 +55,8 @@ const Forecast = () => {
 
     return (
         <div>
-            <h2>Find Current Weather Conditions</h2>
-            <button onClick={getForecast}>Get Forecast</button>
+            <Header Header as='h3' inverted style={{textAlign: "center"}}>Find Current Weather Conditions</Header>
+            <Button inverted onClick={getForecast}>Get Forecast</Button>
             <Conditions
                 responseObj={responseObj}
                 />
