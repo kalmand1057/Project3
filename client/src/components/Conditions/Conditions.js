@@ -22,7 +22,7 @@ import React from "react";
 
 const Conditions = (props) => {
     return (
-        <div>
+        <div style={{background: "rgba(128, 128, 128, 0.5)", width: "30rem", borderRadius: ".5rem"}}>
             {props.responseObj.cod === 200 ?
                 <div className="container">
                     <div className="row">

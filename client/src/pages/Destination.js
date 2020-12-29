@@ -45,11 +45,7 @@ export default function Destination() {
       </Segment>
       </Segment.Group>
      </Container>
-       
-     
-     <footer>
-       Page created by yournamehere
-     </footer>
+ 
    </div>
  );
 }
