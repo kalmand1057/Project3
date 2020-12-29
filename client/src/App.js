@@ -7,9 +7,11 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Welcome from "./pages/Welcome";
+import Search from "./pages/Search";
 import WrongLogin from "./pages/WrongLogin";
 import { myContext } from "./utils/LoginContext";
 import Destination from "./pages/Destination";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -57,6 +59,7 @@ function App() {
           </>
         )}
       </Switch>
+      <Footer />
     </Router>
   );
 }
