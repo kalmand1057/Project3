@@ -50,7 +50,6 @@ const Forecast = () => {
 
     return (
         <div>
-<<<<<<< HEAD
             <h2>Find Current Weather Conditions</h2>
             <form onSubmit={getForecast}>
                 <input
@@ -84,10 +83,6 @@ const Forecast = () => {
                 <button type="submit">Get Forecast</button>
 
             </form>
-=======
-            <Header Header as='h3' inverted style={{textAlign: "center"}}>Find Current Weather Conditions</Header>
-            <Button inverted onClick={getForecast}>Get Forecast</Button>
->>>>>>> main
             <Conditions
                 responseObj={responseObj}
                 />

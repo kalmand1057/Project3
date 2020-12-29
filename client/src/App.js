@@ -11,12 +11,9 @@ import Search from "./pages/Search";
 import WrongLogin from "./pages/WrongLogin";
 import { myContext } from "./utils/LoginContext";
 import Destination from "./pages/Destination";
-<<<<<<< HEAD
 import NewDestination from "./pages/NewDestination";
 import Current from "./pages/Current";
-=======
 import Footer from "./components/Footer";
->>>>>>> main
 
 
 function App() {
@@ -43,7 +40,6 @@ function App() {
         </Route>
         { ctx ? (
           <>
-<<<<<<< HEAD
           <Route exact path="/welcome">
             <Welcome />
           </Route>
@@ -53,14 +49,9 @@ function App() {
           <Route exact path="/current">
             <Current />
           </Route>
-=======
-            <Route exact path="/welcome">
-              <Welcome />
-            </Route>
             <Route exact path="/destinations">
               <Destination />
             </Route>
->>>>>>> main
           </>
         ) : (
           <>
