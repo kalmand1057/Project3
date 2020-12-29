@@ -1,6 +1,7 @@
 import React from "react";
 import BudgetChart from "../components/BudgetChart";
 import Forecast from "../components/Forecast/Forecast";
+import Jumbotron from "../components/Jumbotron/Jumbotron"
 import { Segment, Header, Container } from 'semantic-ui-react';
 
 const styles = {
@@ -16,9 +17,11 @@ const styles = {
 export default function Destination() {
  return (
    <div className="App">
-     <Container style={styles.heading}>
-     <Header as='h1' inverted style={{textAlign: "center"}}>Destination</Header>
 
+    
+
+     <Container style={styles.heading}>
+     <Jumbotron />
      <Segment.Group horizontal style={styles.bkgd}>
        
       {/* Forecast Segment */}

@@ -3,36 +3,31 @@ import Conditions from "../Conditions/Conditions";
 import axios from "axios";
 import { Button, Header} from 'semantic-ui-react';
 
-
-
-
-
-
-
 const Forecast = () => {
+    let [city, setCity] = useState("");
+    let [unit, setUnit] = useState("imperial");
     let [responseObj, setResponseObj] = useState({});
     const options = {
         method: "GET",
         url: "https://community-open-weather-map.p.rapidapi.com/weather",
         params: {
-          q: "Seattle",
-          lat: "0",
-          lon: "0",
-          callback: "test",
-          id: "2172797",
-          lang: "null",
-          units: '"metric" or "imperial"',
-          mode: "xml, html"
+          q: city,
+          lat: '0',
+          lon: '0',
+          id: '2172797',
+          lang: 'null',
+          units: unit,
+          mode: 'xml, html'
         },
         headers: {
-          "x-rapidapi-key": process.env.WEATHER_API,
-          "x-rapidapi-host": 'community-open-weather-map.p.rapidapi.com'
+          'x-rapidapi-key': 'f30827c038mshe9a8b31a25c3193p15c010jsn00699ab3d33e',
+          'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com'
         }
       };
-    function getForecast () {
-
+    function getForecast (e) {
+        e.preventDefault();
         axios.request(options).then(function (response) {
-            console.log(response.data);
+            console.log(response);
             setResponseObj(response.data);
         }).catch(function (error) {
             console.error(error);
@@ -55,8 +50,39 @@ const Forecast = () => {
 
     return (
         <div>
-            <Header Header as='h3' inverted style={{textAlign: "center"}}>Find Current Weather Conditions</Header>
-            <Button inverted onClick={getForecast}>Get Forecast</Button>
+            <h2>Find Current Weather Conditions</h2>
+            <form onSubmit={getForecast}>
+                <input
+                    type="text"
+                    placeholder="Enter City"
+                    maxLength="50"
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    />
+                <label>
+                    <input
+                        type="radio"
+                        name="units"
+                        checked={unit === "imperial"}
+                        value="imperial"
+                        onChange={(e) => setUnit(e.target.value)}
+                        />
+                    Fahrenheit
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        name="units"
+                        checked={unit === "metric"}
+                        value="metric"
+                        onChange={(e) => setUnit(e.target.value)}
+                        />
+                    Celcius
+                </label>
+
+                <button type="submit">Get Forecast</button>
+
+            </form>
             <Conditions
                 responseObj={responseObj}
                 />

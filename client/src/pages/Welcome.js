@@ -15,9 +15,7 @@ const Welcome = () => (
         <Header as='h1' inverted>Welcome</Header>
         <Button inverted>Current Trip</Button>
         <Button inverted>Saved Destinations</Button>
-        <Link to="/search">
-        <Button inverted>New Destination</Button>
-        </Link>
+        <Button inverted href="/newdestination">New Destination</Button>
         </Container>
     </Grid>
     </div>
