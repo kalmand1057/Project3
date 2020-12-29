@@ -1,4 +1,5 @@
 import React from "react";
+import BudgetChart from "../components/BudgetChart";
 import Forecast from "../components/Forecast/Forecast";
 
 export default function Destination() {
@@ -10,6 +11,7 @@ export default function Destination() {
      <main>
        <Forecast />
      </main>
+     <BudgetChart />
      <footer>
        Page created by yournamehere
      </footer>
