@@ -6,23 +6,21 @@ const styles = {
     heading: {
         margin: 250
     },
-    // html: {
-    //     backgroundImage: "url(/sunsetriver.jpeg)",
-    //     backgroundRepeat: 'no-repeat',
-    //     backgroundPosition: 'center',
-    //     width: '101vw',
-    //     height: '102vh'
-    // }
-    //W3SCHOOLS How to full page image
-    //W3SCHOOLS How to half page image
+    big: {
+        fontSize: 35,
+        textShadow: "0 0 3px #696969"
+    },
+    shadow: {
+        textShadow: "0 0 3px #696969"
+    }
 }
 
 const WrongLogin = () => (
     <div>
     <Grid centered columns={2}>
         <Container style={styles.heading}>
-        <Header as='h1' inverted>You are Not Logged In!</Header>
-        <Header as='h3' inverted>Your Email or Password may be incorrect</Header>
+        <Header as='h1' inverted style={styles.big}>You are Not Logged In!</Header>
+        <Header as='h3' inverted style={styles.shadow}>Your Email or Password may be incorrect</Header>
         <Link to="/login">
             <Button inverted>Log in</Button>
         </Link>
