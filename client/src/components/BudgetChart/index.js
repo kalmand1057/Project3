@@ -3,6 +3,7 @@ import Axios from "axios";
 import Chart from "react-google-charts";
 
 export default function BudgetChart(props) {
+    console.log(props.budget)
     return(
         <div style={{background: "rgba(128, 128, 128, 0.5)", width: "30rem", borderRadius: ".5rem"}}>
             <Chart
