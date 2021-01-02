@@ -5,10 +5,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: fixed;
+    position: sticky;
+    top: 100%;
     left: 0;
     bottom: 0;
     width: 100%;
+    height: 3rem;
   }
 
   .footer-links {
@@ -46,7 +48,9 @@
   }
 
   .contacts > h1 {
-    font-size: large;
+    font-size: medium;
+    display: inline;
+    margin: 1rem;
   }
   .email {
     color: #fff;

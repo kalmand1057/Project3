@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import BudgetChart from "../components/BudgetChart";
 import Forecast from "../components/Forecast/Forecast";
 import Jumbotron from "../components/Jumbotron/Jumbotron"
+import Comment from "../pages/Comment"
 import { Segment, Header, Container } from 'semantic-ui-react';
 import Axios from "axios";
 
@@ -64,7 +65,10 @@ export default function Destination() {
           </Link>
          </div>
          <div className="column">
-          <Header inverted style={{textAlign: "center"}}>Fun Activities</Header>
+         <Header inverted style={{textAlign: "center"}}>Notes</Header>
+      <Link to="/comment">
+          <Comment />
+        </Link>
          </div>
        </div>
      </div>
