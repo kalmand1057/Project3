@@ -3,12 +3,17 @@ import BudgetChart from "../components/BudgetChart"
 import Axios from "axios";
 
 export default function Budget() {
-    const [user, setUser] = useState();
+    const [userBudget, setUserBudget] = useState({});
     const [budgetUpdate, setBudgetUpdate] = useState({maxBudget: 0, airFare: 0, dining: 0, lodging: 0, misc: 0});
 
     useEffect(() => {
-        getUser();
+        getUserBudget();
     }, [])
+    
+    useEffect(() => {
+        getUserBudget();
+    }, [userBudget])
+
     const handleSetBudget = (e) => {
         const { name, value } = e.target;
         if (isNaN(value)) {
@@ -17,38 +22,44 @@ export default function Budget() {
             setBudgetUpdate({...budgetUpdate, [name]: value});
         }
     }
-
-    const getUser = () => {
+    const getUserBudget = () => {
         Axios({
-          method: "GET",
-          withCredentials: true,
-          url: "/api/user",
-        }).then((res) => {
-            setUser(res.data.username)
-        })
+            method: "GET",
+            withCredentials: true,
+            url: "/api/user",
+          }).then((res) => {
+              const user = res.data.username
+              Axios({
+                method: "GET",
+                withCredentials: true,
+                url: `/api/${user}`
+            })
+            .then((result) => {
+                setUserBudget(result.data.budget)
+            })
+          })
     }
 
     const handleUpdate = () => {
         Axios({
             method: "GET",
             withCredentials: true,
-            url: `/api/${user}`
-        }).then((res) => {
-            const oldBudget = res.data.budget;
-            Axios.put(`/api/${user}`, {
+            url: `/api/user`
+        }).then((user) => {
+            Axios.put(`/api/${user.data.username}`, {
                 "budget": {
-                    "maxBudget": parseInt(oldBudget.maxBudget) + parseInt(budgetUpdate.maxBudget),
-                    "airFare": parseInt(oldBudget.airFare) + parseInt(budgetUpdate.airFare),
-                    "dining": parseInt(oldBudget.dining) + parseInt(budgetUpdate.dining),
-                    "lodging": parseInt(oldBudget.lodging) + parseInt(budgetUpdate.lodging),
-                    "misc": parseInt(oldBudget.misc) + parseInt(budgetUpdate.misc)
+                    "maxBudget": parseInt(userBudget.maxBudget) + parseInt(budgetUpdate.maxBudget),
+                    "airFare": parseInt(userBudget.airFare) + parseInt(budgetUpdate.airFare),
+                    "dining": parseInt(userBudget.dining) + parseInt(budgetUpdate.dining),
+                    "lodging": parseInt(userBudget.lodging) + parseInt(budgetUpdate.lodging),
+                    "misc": parseInt(userBudget.misc) + parseInt(budgetUpdate.misc)
                 }
             }).then((result) => console.log("success"))
         })
     }
     return (
         <div>
-            <BudgetChart />
+            <BudgetChart budget={userBudget} remaining={userBudget.maxBudget - userBudget.airFare - userBudget.dining - userBudget.lodging - userBudget.misc}/>
             <div>
                 <p>Increase Max Budget</p>
                 <input type="number" name="maxBudget" onChange={handleSetBudget} placeholder="0.00"></input>
