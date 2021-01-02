@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Conditions from "../components/Conditions/Conditions";
-import { Button, Container, Grid, Header, Form } from 'semantic-ui-react';
-
+import Wiki from "../components/Wiki";
+import { Button, Form, Header, Grid, Container } from 'semantic-ui-react'
 
 const styles = {
   heading: {
@@ -32,49 +32,30 @@ const NewDestination = () => {
     };
 
  return (
-  //  <div className="App">
-  //    <header className="App-header">
-  //      <h1>Select your destination!</h1>
-  //    </header>
-  //    <main>
-  //    <form onSubmit={getDestination}>
-  //               <input
-  //                   type="text"
-  //                   placeholder="Enter City"
-  //                   maxLength="50"
-  //                   value={city}
-  //                   onChange={(e) => setCity(e.target.value)}
-  //                   />
-  //               <button inverted type="submit">Bon Voyage</button>
-  //           </form>
-  //           <Conditions
-  //               responseObj={responseObj}
-  //               />
-  //    </main>
-  //  </div>
-
-
-    <div>
-      <Grid centered columns={2}>
-        <Container style={styles.heading}>
-          <Header as='h1' inverted style={styles.big}>Select your destination</Header>
-          <Form>
-                <Form.Group widths="equal">
-                    <Form.Field>
-                        <input
-                        type="text"
-                        placeholder="Enter City"
-                        maxLength="50"
-                        value={city}
-                        onChange={(e) => setCity(e.target.value)}
-                        />
-                    </Form.Field>
-                    <Button inverted type="submit">Bon Voyage</Button>
-                </Form.Group>
-            </Form>
-        </Container>
-      </Grid>
-    </div>
+   <div className="App">
+     <Grid centered columns={2}>
+     <Container style={styles.heading}>
+     <Header as='h1' inverted>Select Your Destination!</Header>
+    <Form onSubmit={getDestination}>
+    <Form.Field>
+      <input 
+      type="text"
+      placeholder="Enter City"
+      maxLength="50"
+      value={city}
+      onChange={(e) => setCity(e.target.value)}
+      />
+    </Form.Field>
+    <Button inverted type='submit'>Bon Voyage!</Button>
+  </Form>
+  <Header as='h2' inverted>Research Your Destination Here!</Header>
+    <Conditions
+      responseObj={responseObj}/>
+    <Wiki>
+    </Wiki>
+    </Container>
+     </Grid>
+   </div>
  );
 }
 
