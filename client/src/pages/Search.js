@@ -5,15 +5,6 @@ const styles = {
     heading: {
         margin: 250
     },
-    // html: {
-    //     backgroundImage: "url(/sunsetriver.jpeg)",
-    //     backgroundRepeat: 'no-repeat',
-    //     backgroundPosition: 'center',
-    //     width: '101vw',
-    //     height: '102vh'
-    // }
-    //W3SCHOOLS How to full page image
-    //W3SCHOOLS How to half page image
 }
 
 const Search = () => (

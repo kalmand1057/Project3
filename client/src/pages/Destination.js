@@ -42,41 +42,37 @@ export default function Destination() {
 
  return (
    <div className="App">
-
-    
-
      <Container style={styles.heading}>
      <Jumbotron />
-     <Segment.Group horizontal style={styles.bkgd}>
-       
-      {/* Forecast Segment */}
-      <Segment>
-        <Forecast />
-      </Segment>
 
-      <Segment>
-        <Header inverted style={{textAlign: "center"}}>Route from A to B</Header>
-      </Segment>
+     <div className="ui stackable two column centered grid">
 
-      </Segment.Group>
-      <Segment.Group horizontal style={styles.bkgd}>
-      <Segment>
-      <Header inverted style={{textAlign: "center"}}>Budget for Trip</Header>
-        <Link to="/budget">
+       <div className="two column row">
+         <div className="column">
+          <Forecast />
+         </div>
+         <div className="column">
+          <Header inverted style={{textAlign: "center"}}>Route from A to B</Header>
+         </div>
+       </div>
+
+       <div className="two column row">
+         <div className="column">
+          <Header inverted style={{textAlign: "center"}}>Budget for Trip</Header>
+          <Link to="/budget">
           <BudgetChart budget={userInfo.budget} remaining={userInfo.budget.maxBudget - userInfo.budget.airFare - userInfo.budget.dining - userInfo.budget.lodging - userInfo.budget.misc}/>
-        </Link>
-      </Segment>
-
-      <Segment>
-      <Header inverted style={{textAlign: "center"}}>Fun Activities</Header>
-      </Segment>
-      </Segment.Group>
+          </Link>
+         </div>
+         <div className="column">
+          <Header inverted style={{textAlign: "center"}}>Fun Activities</Header>
+         </div>
+       </div>
+     </div>
      </Container>
-       
      
      <footer>
        Page created by yournamehere
      </footer>
    </div>
  );
-}
+ }

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { myContext} from "../../utils/LoginContext";
 import Axios from "axios";
 import "./Navbar.css";
-// import { Input, Menu, Button, Container, Header } from 'semantic-ui-react'
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -81,7 +80,6 @@ function Navbar() {
                     Log Out
                   </Link>
                 </li>
-                {/* {button && <Button buttonStyle="btn--outline" onClick={logout} linkTo="/logout">Log Out</Button>} */}
               </>
             ) : (
               <>
@@ -99,7 +97,6 @@ function Navbar() {
                     Log In
                   </Link>
                 </li>
-                {/* {button && <Button buttonStyle="btn--outline" linkTo="/login">Log In</Button>} */}
               </>
             )}
           </ul>
@@ -112,33 +109,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-
-
-// export default class Navbar extends Component {
-//   state = { activeItem: "/" }
-
-//   handleClick = (e, { name }) => this.setState({ activeItem: name })
-
-//   render() {
-//     const { activeItem } = this.state
-
-//     return (
-//       <Container>
-//       <Menu secondary>
-//       <Menu.Item 
-//       name="GetawayGuru"
-//       active={ activeItem === "/home" }
-//       onClick={this.handleItemClick}
-//       ><Header as="h4" inverted>Getaway Guru</Header>
-//       </Menu.Item>
-//       <Menu.Menu position="right">
-//         <Menu.Item>
-//         <Button inverted href="/login">Log In</Button>
-//         </Menu.Item>
-//       </Menu.Menu>
-//     </Menu>
-//     </Container>
-//     )
-//   }
-// }
