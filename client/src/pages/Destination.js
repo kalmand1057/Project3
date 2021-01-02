@@ -2,7 +2,7 @@ import React from "react";
 import BudgetChart from "../components/BudgetChart";
 import Forecast from "../components/Forecast/Forecast";
 import Jumbotron from "../components/Jumbotron/Jumbotron"
-import { Segment, Header, Container } from 'semantic-ui-react';
+import { Header, Container } from 'semantic-ui-react';
 
 const styles = {
   bkgd: {
@@ -17,39 +17,35 @@ const styles = {
 export default function Destination() {
  return (
    <div className="App">
-
-    
-
      <Container style={styles.heading}>
      <Jumbotron />
-     <Segment.Group horizontal style={styles.bkgd}>
-       
-      {/* Forecast Segment */}
-      <Segment>
-        <Forecast />
-      </Segment>
 
-      <Segment>
-        <Header inverted style={{textAlign: "center"}}>Route from A to B</Header>
-      </Segment>
+     <div className="ui stackable two column centered grid">
 
-      </Segment.Group>
-      <Segment.Group horizontal style={styles.bkgd}>
-      <Segment>
-      <Header inverted style={{textAlign: "center"}}>Budget for Trip</Header>
-      <BudgetChart />
-      </Segment>
+       <div className="two column row">
+         <div className="column">
+          <Forecast />
+         </div>
+         <div className="column">
+          <Header inverted style={{textAlign: "center"}}>Route from A to B</Header>
+         </div>
+       </div>
 
-      <Segment>
-      <Header inverted style={{textAlign: "center"}}>Fun Activities</Header>
-      </Segment>
-      </Segment.Group>
+       <div className="two column row">
+         <div className="column">
+          <Header inverted style={{textAlign: "center"}}>Budget for Trip</Header>
+          <BudgetChart />
+         </div>
+         <div className="column">
+          <Header inverted style={{textAlign: "center"}}>Fun Activities</Header>
+         </div>
+       </div>
+     </div>
      </Container>
-       
      
      <footer>
        Page created by yournamehere
      </footer>
    </div>
  );
-}
+ }

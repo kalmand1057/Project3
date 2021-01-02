@@ -35,7 +35,6 @@ export default function Register() {
               handlePassword={(e) => setRegisterPassword(e.target.value)}
               handleSubmit={register}
             />
-            {/* <Header as='h4' inverted style={{textAlign: "center"}}>Already have an account? Login <a href="/login">Here</a></Header> */}
           </Container>
         </Grid>
       </div>
