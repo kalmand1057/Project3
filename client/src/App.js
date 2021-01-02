@@ -12,6 +12,7 @@ import WrongLogin from "./pages/WrongLogin";
 import { myContext } from "./utils/LoginContext";
 import Destination from "./pages/Destination";
 import NewDestination from "./pages/NewDestination";
+import Budget from "./pages/Budget";
 import Current from "./pages/Current";
 import Footer from "./components/Footer";
 
@@ -49,9 +50,12 @@ function App() {
           <Route exact path="/current">
             <Current />
           </Route>
-            <Route exact path="/destinations">
-              <Destination />
-            </Route>
+          <Route exact path="/destinations">
+            <Destination />
+          </Route>
+          <Route exact path="/budget">
+            <Budget />
+          </Route>
           </>
         ) : (
           <>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"
 import BudgetChart from "../components/BudgetChart";
 import Forecast from "../components/Forecast/Forecast";
 import Jumbotron from "../components/Jumbotron/Jumbotron"
@@ -37,7 +38,9 @@ export default function Destination() {
       <Segment.Group horizontal style={styles.bkgd}>
       <Segment>
       <Header inverted style={{textAlign: "center"}}>Budget for Trip</Header>
-      <BudgetChart />
+        <Link to="/budget">
+          <BudgetChart />
+        </Link>
       </Segment>
 
       <Segment>
