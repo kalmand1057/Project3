@@ -7,6 +7,10 @@ import { Button, Form, Header, Grid, Container } from 'semantic-ui-react'
 const styles = {
   heading: {
       margin: 120
+  },
+  big: {
+      fontSize: 35,
+      textShadow: "0 0 3px #696969"
   }
 }
 
