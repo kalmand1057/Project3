@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Conditions from "../Conditions/Conditions";
 import axios from "axios";
+import { Form } from 'semantic-ui-react';
 
 const Forecast = () => {
     let [city, setCity] = useState("");
@@ -46,8 +47,9 @@ const Forecast = () => {
 
     return (
         <div>
-            <h2>Find Current Weather Conditions</h2>
-            <form onSubmit={getForecast}>
+            <h2 style={{textAlign: "center"}}>Find Current Weather Conditions</h2>
+            <Form onSubmit={getForecast}>
+                <Form.Field>
                 <input
                     type="text"
                     placeholder="Enter City"
@@ -55,30 +57,33 @@ const Forecast = () => {
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                     />
-                <label>
-                    <input
-                        type="radio"
-                        name="units"
-                        checked={unit === "imperial"}
-                        value="imperial"
-                        onChange={(e) => setUnit(e.target.value)}
-                        />
-                    Fahrenheit
-                </label>
-                <label>
-                    <input
-                        type="radio"
-                        name="units"
-                        checked={unit === "metric"}
-                        value="metric"
-                        onChange={(e) => setUnit(e.target.value)}
-                        />
-                    Celcius
-                </label>
+                </Form.Field>
+                <Form.Field inline>
+                    <label>
+                        <input
+                            type="radio"
+                            name="units"
+                            checked={unit === "imperial"}
+                            value="imperial"
+                            onChange={(e) => setUnit(e.target.value)}
+                            />
+                        <p style={{color: "white"}}>Fahrenheit</p>
+                    </label>
+                    <label>
+                        <input
+                            type="radio"
+                            name="units"
+                            checked={unit === "metric"}
+                            value="metric"
+                            onChange={(e) => setUnit(e.target.value)}
+                            />
+                        <p style={{color: "white"}}>Celcius</p>
+                    </label>
+                </Form.Field>
 
-                <button type="submit">Get Forecast</button>
+                <button type="submit" className="ui inverted button">Get Forecast</button>
 
-            </form>
+            </Form>
             <Conditions
                 responseObj={responseObj}
                 />

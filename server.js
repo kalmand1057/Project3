@@ -89,6 +89,15 @@ app.get("/api/budget", (req, res) => {
   .then(budget => res.json(budget));
 });
 
+app.get("/api/:user", (req, res) => {
+  User.findOne({username: req.params.user})
+  .then(user => res.json(user))
+})
+
+app.put("/api/:user", function(req, res){
+  User.findOneAndUpdate({username: req.params.user}, req.body)
+  .then(dbBudget => res.json(dbBudget))
+})
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
