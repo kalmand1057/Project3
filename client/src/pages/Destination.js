@@ -3,6 +3,7 @@ import BudgetChart from "../components/BudgetChart";
 import Forecast from "../components/Forecast/Forecast";
 import Jumbotron from "../components/Jumbotron/Jumbotron"
 import { Segment, Header, Container } from 'semantic-ui-react';
+import GoogleMap from "../components/GoogleMap/GoogleMap";
 
 const styles = {
   bkgd: {
@@ -31,6 +32,7 @@ export default function Destination() {
 
       <Segment>
         <Header inverted style={{textAlign: "center"}}>Route from A to B</Header>
+        <GoogleMap />
       </Segment>
 
       </Segment.Group>
