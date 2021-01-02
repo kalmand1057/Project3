@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import BudgetChart from "../components/BudgetChart";
 import Forecast from "../components/Forecast/Forecast";
 import Jumbotron from "../components/Jumbotron/Jumbotron"
-import Comment from "../components/Comments/Comment"
+import Comment from "../pages/Comment"
 import { Segment, Header, Container } from 'semantic-ui-react';
 import Axios from "axios";
 
@@ -69,8 +69,10 @@ export default function Destination() {
       </Segment>
 
       <Segment>
-      <Header inverted style={{textAlign: "center"}}>Fun Activities</Header>
-      <Comment/>
+      <Header inverted style={{textAlign: "center"}}>Notes</Header>
+      <Link to="/comment">
+          <Comment />
+        </Link>
       </Segment>
       </Segment.Group>
      </Container>

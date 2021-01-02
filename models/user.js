@@ -47,7 +47,8 @@ const user = new mongoose.Schema({
     dining: {type: Number, default: 0},
     lodging: {type: Number, default: 0},
     misc: {type: Number, default: 0}
-  }
+  },
+  comment: Array
 });
 
 module.exports = mongoose.model("User", user);
