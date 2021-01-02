@@ -12,7 +12,8 @@ const styles = {
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         width: '101vw',
-        height: '102vh'
+        height: '102vh',
+        backgroundSize: "cover"
     }
 }
 
