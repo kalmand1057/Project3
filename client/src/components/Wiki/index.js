@@ -1,10 +1,10 @@
 import React from "react";
-
+import "./index.css";
 
 
 
 export default function Wiki(){
     return(
-        <iframe src="https://en.wikipedia.org/wiki/Main_Page" height="500" width="700" title="Wiki"></iframe>
+        <iframe class="frame" src="https://wikitravel.org/en/Main_Page" height="700" width="1000" title="Wiki"></iframe>
     )
 };
