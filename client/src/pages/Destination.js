@@ -5,6 +5,7 @@ import Forecast from "../components/Forecast/Forecast";
 import Jumbotron from "../components/Jumbotron/Jumbotron"
 import Comment from "../pages/Comment"
 import { Header, Container } from 'semantic-ui-react';
+import GoogleMap from "../components/GoogleMap/GoogleMap";
 import Axios from "axios";
 
 const styles = {
@@ -14,7 +15,7 @@ const styles = {
   },
   heading: {
     margin: 70
-}
+  }
 }
 
 export default function Destination() {
@@ -54,6 +55,7 @@ export default function Destination() {
          </div>
          <div className="column">
           <Header inverted style={{textAlign: "center"}}>Route from A to B</Header>
+          <GoogleMap />
          </div>
        </div>
 
@@ -73,10 +75,7 @@ export default function Destination() {
        </div>
      </div>
      </Container>
-     
-     <footer>
-       Page created by yournamehere
-     </footer>
+ 
    </div>
  );
  }
