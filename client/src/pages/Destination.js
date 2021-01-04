@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import BudgetChart from "../components/BudgetChart";
 import Forecast from "../components/Forecast/Forecast";
 import Jumbotron from "../components/Jumbotron/Jumbotron"
-import { Segment, Header, Container } from 'semantic-ui-react';
+import { Header, Container } from 'semantic-ui-react';
 import Axios from "axios";
 
 const styles = {
@@ -13,7 +13,7 @@ const styles = {
   },
   heading: {
     margin: 70
-}
+  }
 }
 
 export default function Destination() {

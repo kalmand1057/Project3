@@ -6,6 +6,9 @@ import { Container, Grid } from 'semantic-ui-react';
 const styles = {
   heading: {
       margin: 190
+  },
+  html: {
+    height: "100vh",
   }
 }
 
@@ -25,7 +28,7 @@ export default function Register() {
         }).then((res) => {console.log(res); window.location.replace("/login");});
       };
     return (
-      <div>
+      <div style={styles.html}>
         <Grid centered columns={2}>
           <Container style={styles.heading}>
             <FormA 
