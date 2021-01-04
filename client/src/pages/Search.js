@@ -5,6 +5,9 @@ const styles = {
     heading: {
         margin: 250
     },
+    html: {
+        height: "100vh",
+    }
 }
 
 const Search = () => (
