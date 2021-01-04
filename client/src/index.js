@@ -22,7 +22,6 @@ const styles = {
         backgroundImage: 'url(/sunsetriver.jpeg)',
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed",
-        // height: "100vh",
         backgroundSize: "cover"
     }
 }

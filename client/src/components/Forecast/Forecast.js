@@ -7,44 +7,41 @@ const Forecast = () => {
     let [city, setCity] = useState("");
     let [unit, setUnit] = useState("imperial");
     let [responseObj, setResponseObj] = useState({});
+
     const options = {
-        method: "GET",
-        url: "https://community-open-weather-map.p.rapidapi.com/weather",
+        method: 'GET',
+        url: 'https://community-open-weather-map.p.rapidapi.com/forecast',
         params: {
-          q: city,
-          lat: '0',
-          lon: '0',
-          id: '2172797',
-          lang: 'null',
-          units: unit,
-          mode: 'xml, html'
+            q: city, 
+            units: unit, 
+            mode: "xml, html"
         },
         headers: {
           'x-rapidapi-key': 'f30827c038mshe9a8b31a25c3193p15c010jsn00699ab3d33e',
           'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com'
         }
       };
-    function getForecast (e) {
+
+     function getForecast (e) {
         e.preventDefault();
         axios.request(options).then(function (response) {
             console.log(response);
             setResponseObj(response.data);
+
+            console.log(response.data.city);
+            console.log(response.data.list[0].dt);
+            console.log(response.data.list[1].dt);
+            console.log(response.data.list[2].dt);
+            console.log(response.data.list[0].main.temp_max);
+            console.log(response.data.list[0].main.temp_min);
+            console.log(response.data.list[0].weather[0].description);
+            console.log(response.data.list[0].weather[0].icon);
+
+
         }).catch(function (error) {
             console.error(error);
         });
-        // weather data fetch functions
-    //     fetch("https://community-open-weather-map.p.rapidapi.com/weather?q=seattle", {
-	// method: "GET",
-	// header: {
-	// 	"x-rapidapi-key": "3d40ab63d1msh75710ea8155d119p192fdcjsn7fa927f90a06",
-	// 	"x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
-    // }
-
-    // })
-    // .then(response => response.json())
-    // .then(response => {
-    //     setResponseObj(response)
-    // })
+   
 
     };
 
