@@ -4,7 +4,7 @@ import BudgetChart from "../components/BudgetChart";
 import Forecast from "../components/Forecast/Forecast";
 import Jumbotron from "../components/Jumbotron/Jumbotron"
 import Comment from "../pages/Comment"
-import { Segment, Header, Container } from 'semantic-ui-react';
+import { Header, Container } from 'semantic-ui-react';
 import Axios from "axios";
 
 const styles = {
