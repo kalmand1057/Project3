@@ -7,12 +7,15 @@ export default function Budget() {
     const [budgetUpdate, setBudgetUpdate] = useState({maxBudget: 0, airFare: 0, dining: 0, lodging: 0, misc: 0});
 
     useEffect(() => {
+        console.log("calling get user budget")
         getUserBudget();
+        console.log("calling get user budget after")
+
     }, [])
     
-    useEffect(() => {
-        getUserBudget();
-    }, [userBudget])
+    // useEffect(() => {
+    //     getUserBudget();
+    // }, [userBudget])
 
     const handleSetBudget = (e) => {
         const { name, value } = e.target;
@@ -29,12 +32,15 @@ export default function Budget() {
             url: "/api/user",
           }).then((res) => {
               const user = res.data.username
+              console.log("intial call")
               Axios({
                 method: "GET",
                 withCredentials: true,
                 url: `/api/${user}`
             })
             .then((result) => {
+                console.log("setting state")
+
                 setUserBudget(result.data.budget)
             })
           })
