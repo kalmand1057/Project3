@@ -47,6 +47,13 @@ const user = new mongoose.Schema({
     dining: {type: Number, default: 0},
     lodging: {type: Number, default: 0},
     misc: {type: Number, default: 0}
+  },
+  comment: Array,
+  city: {type: String, default: "none"},
+  date: {
+    month: {type: Number, default: 0},
+    day: {type: Number, default: 0},
+    year: {type: Number, default: 0}
   }
 });
 

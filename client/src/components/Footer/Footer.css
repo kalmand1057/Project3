@@ -1,14 +1,14 @@
 .footer-container {
-    background-color: rgba(28, 27, 27, 0.466);
-    padding: 0rem 0 0rem 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+  background-color: rgba(28, 27, 27, 0.466);
+  padding: 0rem 0 0rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   }
 
   .footer-links {
@@ -46,7 +46,9 @@
   }
 
   .contacts > h1 {
-    font-size: large;
+    font-size: medium;
+    display: inline;
+    margin: 1rem;
   }
   .email {
     color: #fff;

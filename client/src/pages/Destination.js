@@ -3,8 +3,11 @@ import { Link } from "react-router-dom"
 import BudgetChart from "../components/BudgetChart";
 import Forecast from "../components/Forecast/Forecast";
 import Jumbotron from "../components/Jumbotron/Jumbotron"
-import { Segment, Header, Container } from 'semantic-ui-react';
+import CommentList from "../components/Comments/CommentList"
+import { Header, Container } from 'semantic-ui-react';
+import GoogleMap from "../components/GoogleMap/GoogleMap";
 import Axios from "axios";
+// import user from "../../../models/user";
 
 const styles = {
   bkgd: {
@@ -13,11 +16,11 @@ const styles = {
   },
   heading: {
     margin: 70
-}
+  }
 }
 
 export default function Destination() {
-  const [userInfo, setUserInfo] = useState({budget: {}, email: ""});
+  const [userInfo, setUserInfo] = useState({budget: {}, email: "", city: "", comment: [], date: {}});
   useEffect(() => {
     getUserInfo();
   }, [])
@@ -35,48 +38,48 @@ export default function Destination() {
             url: `/api/${user}`
         })
         .then((result) => {
-            setUserInfo({budget: result.data.budget, email: result.data.username})
+            setUserInfo({budget: result.data.budget, email: result.data.username, city: result.data.city, comment: result.data.comment, date: result.data.date})
         })
       })
-}
+  }
+  const month = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
+  const comments = userInfo.comment;
 
  return (
    <div className="App">
-
-    
-
      <Container style={styles.heading}>
-     <Jumbotron />
-     <Segment.Group horizontal style={styles.bkgd}>
-       
-      {/* Forecast Segment */}
-      <Segment>
-        <Forecast />
-      </Segment>
+    <Jumbotron month={month[parseInt(userInfo.date.month) - 1]} day={userInfo.date.day} year={userInfo.date.year}/>
+     <div className="ui stackable two column centered grid">
 
-      <Segment>
-        <Header inverted style={{textAlign: "center"}}>Route from A to B</Header>
-      </Segment>
+       <div className="two column row">
+         <div className="column">
+          <Forecast city={userInfo.city}/>
+         </div>
+         <div className="column">
+          <Header inverted style={{textAlign: "center"}}>City Map</Header>
+          <GoogleMap city={userInfo.city}/>
+         </div>
+       </div>
 
-      </Segment.Group>
-      <Segment.Group horizontal style={styles.bkgd}>
-      <Segment>
-      <Header inverted style={{textAlign: "center"}}>Budget for Trip</Header>
-        <Link to="/budget">
+       <div className="two column row">
+         <div className="column">
+          <Header inverted style={{textAlign: "center"}}>Budget for Trip</Header>
+          <Link to="/budget">
           <BudgetChart budget={userInfo.budget} remaining={userInfo.budget.maxBudget - userInfo.budget.airFare - userInfo.budget.dining - userInfo.budget.lodging - userInfo.budget.misc}/>
+          </Link>
+         </div>
+         <div className="column">
+         <Header inverted style={{textAlign: "center"}}>Notes</Header>
+        <Link to="/comment">
+        {comments.map(comment => (
+                <CommentList body={comment}/> 
+            ))}
         </Link>
-      </Segment>
-
-      <Segment>
-      <Header inverted style={{textAlign: "center"}}>Fun Activities</Header>
-      </Segment>
-      </Segment.Group>
+         </div>
+       </div>
+     </div>
      </Container>
-       
-     
-     <footer>
-       Page created by yournamehere
-     </footer>
+ 
    </div>
  );
-}
+ }

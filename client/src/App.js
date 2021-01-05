@@ -14,6 +14,8 @@ import NewDestination from "./pages/NewDestination";
 import Budget from "./pages/Budget";
 import Current from "./pages/Current";
 import Footer from "./components/Footer";
+import Comment from "./pages/Comment";
+import CurrentlyLogged from "./pages/CurrentlyLogged";
 
 
 
@@ -47,7 +49,13 @@ function App() {
             <Budget />
           </Route>
           <Route exact path="/comment">
-        
+            <Comment />
+          </Route>
+          <Route exact path="/login">
+            <CurrentlyLogged />
+          </Route>
+          <Route exact path="/register">
+            <CurrentlyLogged />
           </Route>
           </>
         ) : (
