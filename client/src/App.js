@@ -7,7 +7,6 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Welcome from "./pages/Welcome";
-import Search from "./pages/Search";
 import WrongLogin from "./pages/WrongLogin";
 import { myContext } from "./utils/LoginContext";
 import Destination from "./pages/Destination";
@@ -17,20 +16,11 @@ import Current from "./pages/Current";
 import Footer from "./components/Footer";
 
 
+
 function App() {
   const ctx = useContext(myContext);
   const [data, setData] = useState(null);
 
-  const getUser = () => {
-    Axios({
-      method: "GET",
-      withCredentials: true,
-      url: "/api/user",
-    }).then((res) => {
-      setData(res.data);
-      console.log(res.data);
-    });
-  };
 
   return (
     <Router>
@@ -55,6 +45,9 @@ function App() {
           </Route>
           <Route exact path="/budget">
             <Budget />
+          </Route>
+          <Route exact path="/comment">
+        
           </Route>
           </>
         ) : (
