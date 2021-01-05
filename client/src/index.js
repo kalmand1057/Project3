@@ -10,14 +10,6 @@ const imgArr = ["cloudsplane.jpeg", "moped.jgeg", "mtnsriver.jpeg", "planelogin.
 const newImg = imgArr[Math.floor(Math.random(imgArr.length))]
 
 const styles = {
-    // html: {
-    //     backgroundImage: `url(/${})`,
-    //     height: "100vh",
-    //     backgroundRepeat: "no-repeat",
-    //     backgroundAttachment: "fixed",
-    //     backgroundPosition: "center",
-    //     backgroundSize: "cover"
-    // }
     html: {
         backgroundImage: 'url(/sunsetriver.jpeg)',
         backgroundRepeat: "no-repeat",

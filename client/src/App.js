@@ -19,7 +19,6 @@ import Comment from "./pages/Comment";
 import CurrentlyLogged from "./pages/CurrentlyLogged";
 
 
-
 function App() {
   const ctx = useContext(myContext);
   const [data, setData] = useState(null);
