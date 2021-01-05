@@ -43,39 +43,37 @@ export default function Destination() {
 }
 
  return (
-   <div className="App">
-     <Container style={styles.heading}>
-     <Jumbotron />
+   <div>
+    <Container style={styles.heading}>
+      <Jumbotron />
 
-     <div className="ui stackable two column centered grid">
-
-       <div className="two column row">
-         <div className="column">
-          <Forecast />
-         </div>
-         <div className="column">
-          <Header inverted style={{textAlign: "center"}}>Route from A to B</Header>
-          <GoogleMap />
-         </div>
+      <div className="ui stackable two column centered grid">
+        <div className="two column row">
+          <div className="column">
+            <Forecast />
+          </div>
+          <div className="column">
+            <Header inverted style={{textAlign: "center"}}>Route from A to B</Header>
+            <GoogleMap />
+          </div>
        </div>
 
        <div className="two column row">
          <div className="column">
-          <Header inverted style={{textAlign: "center"}}>Budget for Trip</Header>
-          <Link to="/budget">
-          <BudgetChart budget={userInfo.budget} remaining={userInfo.budget.maxBudget - userInfo.budget.airFare - userInfo.budget.dining - userInfo.budget.lodging - userInfo.budget.misc}/>
-          </Link>
+            <Header inverted style={{textAlign: "center"}}>Budget for Trip</Header>
+            <Link to="/budget">
+            <BudgetChart budget={userInfo.budget} remaining={userInfo.budget.maxBudget - userInfo.budget.airFare - userInfo.budget.dining - userInfo.budget.lodging - userInfo.budget.misc}/>
+            </Link>
          </div>
          <div className="column">
-         <Header inverted style={{textAlign: "center"}}>Notes</Header>
-      <Link to="/comment">
-          <Comment />
-        </Link>
+            <Header inverted style={{textAlign: "center"}}>Notes</Header>
+            <Link to="/comment">
+            <Comment />
+            </Link>
          </div>
-       </div>
-     </div>
-     </Container>
- 
+        </div>
+      </div>
+    </Container>
    </div>
  );
  }

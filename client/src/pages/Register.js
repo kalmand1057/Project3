@@ -5,7 +5,7 @@ import { Container, Grid } from 'semantic-ui-react';
 
 const styles = {
   heading: {
-      margin: 190
+      margin: 130
   },
   html: {
     height: "100vh",

@@ -3,6 +3,8 @@ import "./index.css";
 
 export default function Wiki(){
     return(
-        <iframe className="frame" src="https://wikitravel.org/en/Main_Page" height="700" width="1000" title="Wiki"></iframe>
+        <div className="container">
+            <iframe className="frame" src="https://wikitravel.org/en/Main_Page" title="Wiki"></iframe>
+        </div>
     )
 };

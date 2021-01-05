@@ -5,7 +5,7 @@ import { Button, Container, Grid, Header } from 'semantic-ui-react';
 
 const styles = {
     heading: {
-        margin: 150
+        margin: 130
     },
     big: {
         fontSize: 35,
@@ -22,7 +22,6 @@ const Welcome = () => (
         <Container style={styles.heading}>
         <Header as='h1' inverted style={styles.big}>Welcome</Header>
         <Button inverted href="/destinations">Current Trip</Button>
-        <Button inverted>Saved Destinations</Button>
         <Button inverted href="/newdestination">New Destination</Button>
         </Container>
     </Grid>

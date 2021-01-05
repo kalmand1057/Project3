@@ -3,6 +3,12 @@ import Conditions from "../Conditions/Conditions";
 import axios from "axios";
 import { Form } from 'semantic-ui-react';
 
+const styles = {
+    box: {
+        opacity: 0.7
+    }
+}
+
 const Forecast = () => {
     let [city, setCity] = useState("");
     let [unit, setUnit] = useState("imperial");
@@ -56,6 +62,7 @@ const Forecast = () => {
                     maxLength="50"
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
+                    style={styles.box}
                     />
                 </Form.Field>
                 <Form.Field inline>

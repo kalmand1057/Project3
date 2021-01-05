@@ -35,7 +35,7 @@ const NewDestination = () => {
    <div className="App">
      <Grid centered columns={2}>
      <Container style={styles.heading}>
-     <Header as='h1' inverted>Select Your Destination!</Header>
+     <Header as='h1' inverted>Set Your Destination!</Header>
     <Form onSubmit={getDestination}>
     <Form.Field>
       <input 
