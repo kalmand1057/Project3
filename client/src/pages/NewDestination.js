@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
-import Conditions from "../components/Conditions/Conditions";
+import Axios from "axios";
 import Wiki from "../components/Wiki";
 import { Button, Form, Header, Grid, Container } from 'semantic-ui-react'
 
@@ -15,45 +14,76 @@ const styles = {
 }
 
 const NewDestination = () => {
+  let [city, setCity] = useState("");
+  const [date, setDate] = useState({month: 0, day: 0, year: 0});
 
-    let [city, setCity] = useState("");
-    let [responseObj, setResponseObj] = useState({});
+  const handleSetCity = (e) => {
+    setCity(e.target.value)
+  }
 
-    const cities = ["Paris", "Los Angleles", "Berlin", "Spain"];
+  const handleSetDestination = (e) => {
+    e.preventDefault();
+    Axios({
+      method: "GET",
+      withCredentials: true,
+      url: `/api/user`
+    }).then((user) => {
+        Axios.put(`/api/${user.data.username}`, {
+            "city": city
+        }).then((result) => console.log("success"))
+    })
+  }
 
-    function getDestination (e) {
-        e.preventDefault();
-        axios.request(cities).then(function (response) {
-            console.log(response.data);
-            setResponseObj(response.data);
-        }).catch(function (error) {
-            console.error(error);
-        });
-    };
+  const handleSetDate = (e) => {
+    const { name, value } = e.target;
+    if (isNaN(value)) {
+        setDate({...date, [name]: 0});
+    } else {
+        setDate({...date, [name]: value});
+    }
+  }
+
+  const handleDateUpdate = (e) => {
+      e.preventDefault();
+      Axios({
+          method: "GET",
+          withCredentials: true,
+          url: `/api/user`
+      }).then((user) => {
+          Axios.put(`/api/${user.data.username}`, {
+              "date": date
+          }).then((result) => console.log("success"))
+      })
+  }
 
  return (
    <div className="App">
      <Grid centered columns={2}>
-     <Container style={styles.heading}>
-     <Header as='h1' inverted>Select Your Destination!</Header>
-    <Form onSubmit={getDestination}>
-    <Form.Field>
-      <input 
-      type="text"
-      placeholder="Enter City"
-      maxLength="50"
-      value={city}
-      onChange={(e) => setCity(e.target.value)}
-      />
-    </Form.Field>
-    <Button inverted type='submit'>Bon Voyage!</Button>
-  </Form>
-  <Header as='h2' inverted>Research Your Destination Here!</Header>
-    <Conditions
-      responseObj={responseObj}/>
-    <Wiki>
-    </Wiki>
-    </Container>
+      <Container style={styles.heading}>
+        <Header as='h1' inverted>Select Your Destination!</Header>
+        <Form onSubmit={handleSetDestination}>
+          <Form.Field>
+            <input 
+            type="text"
+            placeholder="Enter City"
+            maxLength="50"
+            value={city}
+            onChange={handleSetCity}
+            />
+          </Form.Field>
+          <Button inverted type='submit'>Bon Voyage!</Button>
+        </Form>
+        <div>
+            <input type="number" name="month" placeHolder="00" onChange={handleSetDate}/>
+            <input type="number" name="day" placeHolder="00" onChange={handleSetDate}/>
+            <input type="number" name="year" placeHolder="0000" onChange={handleSetDate}/>
+            <br/>
+            <button onClick={handleDateUpdate}>Set Date</button>
+        </div>
+        <Header as='h2' inverted>Research Your Destination Here!</Header>
+        <Wiki>
+        </Wiki>
+      </Container>
      </Grid>
    </div>
  );

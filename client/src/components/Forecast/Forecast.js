@@ -1,12 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Conditions from "../Conditions/Conditions";
 import axios from "axios";
 import { Form } from 'semantic-ui-react';
 
-const Forecast = () => {
+const Forecast = (props) => {
     let [city, setCity] = useState("");
     let [unit, setUnit] = useState("imperial");
     let [responseObj, setResponseObj] = useState({});
+
+    useEffect(() => {
+        axios({
+            method: "GET",
+            withCredentials: true,
+            url: "/api/user",
+          }).then((res) => {
+              const user = res.data.username
+              axios({
+                method: "GET",
+                withCredentials: true,
+                url: `/api/${user}`
+            })
+            .then((result) => {
+                setCity(result.data.city);
+            })
+          })
+
+    }, [])
+
+    useEffect(() => {
+        axios.request(options).then(function (response) {
+            console.log(response)
+            setResponseObj(response.data);
+        })
+    }, [city])
 
     const options = {
         method: 'GET',
@@ -47,9 +73,9 @@ const Forecast = () => {
 
     return (
         <div>
-            <h2 style={{textAlign: "center"}}>Find Current Weather Conditions</h2>
+            <h2 style={{textAlign: "center"}}>Current Weather Conditions</h2>
             <Form onSubmit={getForecast}>
-                <Form.Field>
+                {/* <Form.Field>
                 <input
                     type="text"
                     placeholder="Enter City"
@@ -57,7 +83,7 @@ const Forecast = () => {
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                     />
-                </Form.Field>
+                </Form.Field> */}
                 <Form.Field inline>
                     <label>
                         <input
@@ -81,7 +107,7 @@ const Forecast = () => {
                     </label>
                 </Form.Field>
 
-                <button type="submit" className="ui inverted button">Get Forecast</button>
+                <button type="submit" className="ui inverted button">Change Temperature Units</button>
 
             </Form>
             <Conditions

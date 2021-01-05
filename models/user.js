@@ -48,7 +48,13 @@ const user = new mongoose.Schema({
     lodging: {type: Number, default: 0},
     misc: {type: Number, default: 0}
   },
-  comment: Array
+  comment: Array,
+  city: {type: String, default: "none"},
+  date: {
+    month: {type: Number, default: 0},
+    day: {type: Number, default: 0},
+    year: {type: Number, default: 0}
+  }
 });
 
 module.exports = mongoose.model("User", user);
