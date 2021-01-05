@@ -83,7 +83,7 @@ export default function Budget() {
                     "lodging": parseInt(userBudget.lodging) + parseInt(budgetUpdate.lodging),
                     "misc": parseInt(userBudget.misc) + parseInt(budgetUpdate.misc)
                 }
-            }).then((result) => console.log("success"))
+            }).then((result) => getUserBudget())
         })
     }
     return (

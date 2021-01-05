@@ -23,8 +23,8 @@ export default function Home() {
     })
 
     return (
-    <div style={styles.html}>
-        <Grid centered columns={2}>
+    <div>
+        <Grid centered>
             <Container style={styles.heading}>
             <animated.div style={props}>
                 <Header as='h1' inverted style={styles.big}>Start your adventure with us.</Header>

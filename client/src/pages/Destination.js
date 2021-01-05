@@ -3,10 +3,11 @@ import { Link } from "react-router-dom"
 import BudgetChart from "../components/BudgetChart";
 import Forecast from "../components/Forecast/Forecast";
 import Jumbotron from "../components/Jumbotron/Jumbotron"
-import Comment from "../pages/Comment"
+import CommentList from "../components/Comments/CommentList"
 import { Header, Container } from 'semantic-ui-react';
 import GoogleMap from "../components/GoogleMap/GoogleMap";
 import Axios from "axios";
+// import user from "../../../models/user";
 
 const styles = {
   bkgd: {
@@ -19,7 +20,7 @@ const styles = {
 }
 
 export default function Destination() {
-  const [userInfo, setUserInfo] = useState({budget: {}, email: ""});
+  const [userInfo, setUserInfo] = useState({budget: {}, email: "", city: "", comment: [], date: {}});
   useEffect(() => {
     getUserInfo();
   }, [])
@@ -37,25 +38,27 @@ export default function Destination() {
             url: `/api/${user}`
         })
         .then((result) => {
-            setUserInfo({budget: result.data.budget, email: result.data.username})
+            setUserInfo({budget: result.data.budget, email: result.data.username, city: result.data.city, comment: result.data.comment, date: result.data.date})
         })
       })
-}
+  }
+  const month = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
+  const comments = userInfo.comment;
 
  return (
-   <div>
-    <Container style={styles.heading}>
-      <Jumbotron />
+   <div className="App">
+     <Container style={styles.heading}>
+    <Jumbotron month={month[parseInt(userInfo.date.month) - 1]} day={userInfo.date.day} year={userInfo.date.year}/>
+     <div className="ui stackable two column centered grid">
 
-      <div className="ui stackable two column centered grid">
-        <div className="two column row">
-          <div className="column">
-            <Forecast />
-          </div>
-          <div className="column">
-            <Header inverted style={{textAlign: "center"}}>Route from A to B</Header>
-            <GoogleMap />
-          </div>
+       <div className="two column row">
+         <div className="column">
+          <Forecast city={userInfo.city}/>
+         </div>
+         <div className="column">
+          <Header inverted style={{textAlign: "center"}}>City Map</Header>
+          <GoogleMap city={userInfo.city}/>
+         </div>
        </div>
 
        <div className="two column row">
@@ -66,10 +69,12 @@ export default function Destination() {
             </Link>
          </div>
          <div className="column">
-            <Header inverted style={{textAlign: "center"}}>Notes</Header>
-            <Link to="/comment">
-            <Comment />
-            </Link>
+         <Header inverted style={{textAlign: "center"}}>Notes</Header>
+        <Link to="/comment">
+        {comments.map(comment => (
+                <CommentList body={comment}/> 
+            ))}
+        </Link>
          </div>
         </div>
       </div>

@@ -1,13 +1,13 @@
 import React from 'react'
 // import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
-export default function GoogleMap() {
+export default function GoogleMap(props) {
   return (
     <iframe
         // width="600"
         // height="450"
         // frameborder="0" style="border:0"
-        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDuaZFYBgwyyEUx46x6qOKEWFBnVgKCRNE&q=Space+Needle,Seattle+WA" allowfullscreen>
+        src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDuaZFYBgwyyEUx46x6qOKEWFBnVgKCRNE&q=${props.city}`} allowfullscreen>
     </iframe>
   )
 }
