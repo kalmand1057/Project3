@@ -57,7 +57,7 @@ const NewDestination = () => {
   }
 
  return (
-   <div className="App">
+   <div>
      <Grid centered columns={2}>
       <Container style={styles.heading}>
         <Header as='h1' inverted>Select Your Destination!</Header>

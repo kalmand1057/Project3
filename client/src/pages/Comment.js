@@ -1,6 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import Axios from "axios";
 import Comments from "../components/Comments"
+import { Button, Container, Grid, Header } from 'semantic-ui-react';
+
+const styles = {
+    heading: {
+        marginTop: 140
+    },
+    html: {
+        height: "100vh",
+      }
+}
 
 export default function Comment () {
     const [comments, setComments] = useState([])
@@ -32,7 +42,13 @@ export default function Comment () {
     }
     const Array = ["Hello", "Good bye"]
     return(
-        <Comments comments={comments} handleSubmit={handleNewComment}/>
+        <div style={styles.html}>
+            <Grid centered>
+                    <Container style={styles.heading}>
+                        <Comments comments={comments} handleSubmit={handleNewComment}/>
+                    </Container>
+            </Grid>
+        </div>
     );
     
 }

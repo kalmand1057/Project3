@@ -1,9 +1,16 @@
 import React from 'react'
 // import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
+const styles = {
+  size: {
+    height: "90%",
+    width: "100%"
+  }
+}
+
 export default function GoogleMap(props) {
   return (
-    <iframe
+    <iframe style={styles.size}
         // width="600"
         // height="450"
         // frameborder="0" style="border:0"

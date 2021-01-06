@@ -48,7 +48,7 @@ export default function Destination() {
  return (
    <div className="App">
      <Container style={styles.heading}>
-    <Jumbotron month={month[parseInt(userInfo.date.month) - 1]} day={userInfo.date.day} year={userInfo.date.year}/>
+    <Jumbotron dividing month={month[parseInt(userInfo.date.month) - 1]} day={userInfo.date.day} year={userInfo.date.year}/>
      <div className="ui stackable two column centered grid">
 
        <div className="two column row">
@@ -56,25 +56,25 @@ export default function Destination() {
           <Forecast city={userInfo.city}/>
          </div>
          <div className="column">
-          <Header inverted style={{textAlign: "center"}}>City Map</Header>
+          <Header as="h2" inverted style={{textAlign: "center"}}>City Map</Header>
           <GoogleMap city={userInfo.city}/>
          </div>
        </div>
 
        <div className="two column row">
          <div className="column">
-            <Header inverted style={{textAlign: "center"}}>Budget for Trip</Header>
-            <Link to="/budget">
-            <BudgetChart budget={userInfo.budget} remaining={userInfo.budget.maxBudget - userInfo.budget.airFare - userInfo.budget.dining - userInfo.budget.lodging - userInfo.budget.misc}/>
-            </Link>
+            <Header as="h2" inverted style={{textAlign: "center"}}>Budget for Trip</Header>
+              <Link to="/budget">
+              <BudgetChart budget={userInfo.budget} remaining={userInfo.budget.maxBudget - userInfo.budget.airFare - userInfo.budget.dining - userInfo.budget.lodging - userInfo.budget.misc}/>
+              </Link>
          </div>
          <div className="column">
-         <Header inverted style={{textAlign: "center"}}>Notes</Header>
-        <Link to="/comment">
-        {comments.map(comment => (
-                <CommentList body={comment}/> 
-            ))}
-        </Link>
+            <Header as="h2" inverted style={{textAlign: "center"}}>Notes</Header>
+            <Link to="/comment">
+              {comments.map(comment => (
+                  <CommentList body={comment}/> 
+              ))}
+            </Link>
          </div>
         </div>
       </div>

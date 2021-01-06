@@ -80,17 +80,12 @@ const Forecast = (props) => {
     return (
         <div>
             <h2 style={{textAlign: "center"}}>Current Weather Conditions</h2>
+
+            <Conditions
+                responseObj={responseObj}
+                />
+
             <Form onSubmit={getForecast}>
-                {/* <Form.Field>
-                <input
-                    type="text"
-                    placeholder="Enter City"
-                    maxLength="50"
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
-                    style={styles.box}
-                    />
-                </Form.Field> */}
                 <Form.Field inline>
                     <label>
                         <input
@@ -112,14 +107,11 @@ const Forecast = (props) => {
                             />
                         <p style={{color: "white"}}>Celcius</p>
                     </label>
+                    
+                    <button type="submit" className="ui inverted button">Change Temperature Units</button>
                 </Form.Field>
 
-                <button type="submit" className="ui inverted button">Change Temperature Units</button>
-
             </Form>
-            <Conditions
-                responseObj={responseObj}
-                />
         </div>
     );
 };
