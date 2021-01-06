@@ -13,12 +13,16 @@ const styles = {
 }
 
 export default function Comment () {
+    const [newComment, setNewComment] = useState()
     const [comments, setComments] = useState([])
 
     useEffect(() => {
         getComments()
     }, [])
 
+    const handleSetComment = (e) => {
+        setNewComment(e.target.value)
+    }
     const getComments = () => {
         Axios({
             method: "GET",
@@ -38,14 +42,21 @@ export default function Comment () {
       }
 
     const handleNewComment = () => {
-        console.log("whatever")
+        Axios({
+            method: "GET",
+            withCredentials: true,
+            url: `/api/user`
+        }).then((user) => {
+            Axios.put(`/api/${user.data.username}`, {
+                "comment": [...comments, newComment]
+            }).then((result) => getComments())
+        })
     }
-    const Array = ["Hello", "Good bye"]
     return(
         <div style={styles.html}>
             <Grid centered>
                     <Container style={styles.heading}>
-                        <Comments comments={comments} handleSubmit={handleNewComment}/>
+                        <Comments comments={comments} handleComment={handleSetComment} handleSubmit={handleNewComment}/>
                     </Container>
             </Grid>
         </div>

@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from "react";
-import Axios from "axios";
+import React from "react";
 import Chart from "react-google-charts";
 
 export default function BudgetChart(props) {
@@ -21,7 +20,6 @@ export default function BudgetChart(props) {
             ]}
             options={{
                 title: `Total Budget of $${props.budget.maxBudget}`,
-                // Just add this option
                 is3D: true,
                 backgroundColor: "transparent"
             }}

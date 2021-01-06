@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext, Component } from "react";
-import { Button } from "../Button";
 import { Link } from "react-router-dom";
 import { myContext} from "../../utils/LoginContext";
 import Axios from "axios";

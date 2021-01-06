@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Container, Grid, Header } from 'semantic-ui-react';
+import { Button, Header } from 'semantic-ui-react';
 
 const styles = {
     box: {
@@ -13,9 +13,6 @@ const styles = {
 }
 
 function CommentAdd(props) {
-    const { handleCommentSubmit } = props;
-
-    const [comment, setComment] = useState("");
     
     return ( 
 
@@ -24,15 +21,11 @@ function CommentAdd(props) {
             <div className="card mt-4 mb-3 box">
                 <div className="card-body">
                     <textarea name="comment" className="form-control" placeholder="Add a new comment" 
-                    onChange={event => setComment(event.target.value)} value={comment}></textarea>
+                    onChange={props.handleOnChange}></textarea>
                 </div>
             </div>
         <div>
-            <Button inverted className="btn btn-primary mr-3" onClick={event => {
-                handleCommentSubmit(comment);
-                setComment("");
-            }}>Comment</Button>
-            <Button inverted className="btn btn-warning">Close issue</Button>
+            <Button inverted className="btn btn-primary mr-3" onClick={props.handleClick}>Comment</Button>
         </div>
         </div>
     );

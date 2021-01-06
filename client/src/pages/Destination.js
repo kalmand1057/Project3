@@ -4,10 +4,10 @@ import BudgetChart from "../components/BudgetChart";
 import Forecast from "../components/Forecast/Forecast";
 import Jumbotron from "../components/Jumbotron/Jumbotron"
 import CommentList from "../components/Comments/CommentList"
-import { Header, Container } from 'semantic-ui-react';
+import { Header, Container, Button } from 'semantic-ui-react';
 import GoogleMap from "../components/GoogleMap/GoogleMap";
 import Axios from "axios";
-// import user from "../../../models/user";
+
 
 const styles = {
   bkgd: {
@@ -48,7 +48,16 @@ export default function Destination() {
  return (
    <div className="App">
      <Container style={styles.heading}>
-    <Jumbotron dividing month={month[parseInt(userInfo.date.month) - 1]} day={userInfo.date.day} year={userInfo.date.year}/>
+       {userInfo.city === "none" ? 
+       <>
+        <Header as='h1' inverted >Please Set your City and Day first!</Header>
+        <Link to="/newdestination">
+          <Button inverted>Click here!</Button>
+        </Link>
+       </>
+       :
+       <>
+    <Jumbotron month={month[parseInt(userInfo.date.month) - 1]} day={userInfo.date.day} year={userInfo.date.year}/>
      <div className="ui stackable two column centered grid">
 
        <div className="two column row">
@@ -63,22 +72,41 @@ export default function Destination() {
 
        <div className="two column row">
          <div className="column">
-            <Header as="h2" inverted style={{textAlign: "center"}}>Budget for Trip</Header>
-              <Link to="/budget">
+          <Header as="h2" inverted style={{textAlign: "center"}}>Budget for Trip</Header>
+          <Link to="/budget">
+            {userInfo.budget.maxBudget ? 
               <BudgetChart budget={userInfo.budget} remaining={userInfo.budget.maxBudget - userInfo.budget.airFare - userInfo.budget.dining - userInfo.budget.lodging - userInfo.budget.misc}/>
-              </Link>
+              :
+              <div style={{textAlign: "center", height: "10rem"}}>
+                <Button inverted>Set and Initial budget</Button>
+              </div>
+            }
+          </Link>
          </div>
          <div className="column">
-            <Header as="h2" inverted style={{textAlign: "center"}}>Notes</Header>
-            <Link to="/comment">
-              {comments.map(comment => (
-                  <CommentList body={comment}/> 
-              ))}
-            </Link>
+         <Header as="h2" inverted style={{textAlign: "center"}}>Notes</Header>
+        <Link to="/comment">
+          {userInfo.comment.length ? 
+                <>
+                  {comments.map(comment => (
+                      <CommentList body={comment}/> 
+                    ))
+                  }
+                </>
+                :
+                <div style={{textAlign: "center", height: "10rem"}}>
+                  <Button inverted>Set Notes</Button>
+                </div>
+          }
+
+        </Link>
          </div>
-        </div>
-      </div>
-    </Container>
+       </div>
+     </div>
+     </>
+     }
+     </Container>
+ 
    </div>
  );
  }
