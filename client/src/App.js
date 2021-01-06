@@ -1,7 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Axios from "axios";
 import "./App.css";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -21,8 +20,6 @@ import CurrentlyLogged from "./pages/CurrentlyLogged";
 
 function App() {
   const ctx = useContext(myContext);
-  const [data, setData] = useState(null);
-
 
   return (
     <Router>

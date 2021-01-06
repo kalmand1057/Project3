@@ -1,5 +1,4 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 import { Button, Form, Header } from 'semantic-ui-react';
 import "./forma.css";
 
@@ -13,7 +12,6 @@ const styles = {
 export default function FormA(props) {
     return (
         <div style={{textAlign: "center"}}>
-            {/* <Header as='h1' inverted style={styles.big}>Getaway Guru</Header> */}
             <Header as='h1' inverted style={styles.big}>{props.title}</Header>
             <Form>
                 <Form.Group widths="equal">
