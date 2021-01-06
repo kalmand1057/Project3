@@ -90,17 +90,18 @@ export default function Budget() {
                         <p style={styles.color}>Increase Max Budget</p>
                         <input type="number" name="maxBudget" onChange={handleSetBudget} placeholder="0.00" />
 
-                        <p style={styles.color}>Airfare</p>
+                        <p style={styles.color}>Airfare*</p>
                         <input type="number" name="airFare" onChange={handleSetBudget} placeholder="0.00" />
                        
-                        <p style={styles.color}>Dining</p>
+                        <p style={styles.color}>Dining*</p>
                         <input type="number" name="dining" onChange={handleSetBudget} placeholder="0.00" />
                        
-                        <p style={styles.color}>Lodging</p>
+                        <p style={styles.color}>Lodging*</p>
                         <input type="number" name="lodging" onChange={handleSetBudget} placeholder="0.00" />
                         
-                        <p style={styles.color}>Miscellaneous Purchases</p>
+                        <p style={styles.color}>Miscellaneous Purchases*</p>
                         <input type="number" name="misc" onChange={handleSetBudget} placeholder="0.00" />
+                        <p style={styles.color}>*These values subtract from your Max Budget</p>
                     </Form.Field>
                     </Form.Group>
                 </Form>

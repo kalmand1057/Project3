@@ -3,12 +3,16 @@ import Axios from "axios";
 import Comments from "../components/Comments"
 
 export default function Comment () {
+    const [newComment, setNewComment] = useState()
     const [comments, setComments] = useState([])
 
     useEffect(() => {
         getComments()
     }, [])
 
+    const handleSetComment = (e) => {
+        setNewComment(e.target.value)
+    }
     const getComments = () => {
         Axios({
             method: "GET",
@@ -28,11 +32,18 @@ export default function Comment () {
       }
 
     const handleNewComment = () => {
-        console.log("whatever")
+        Axios({
+            method: "GET",
+            withCredentials: true,
+            url: `/api/user`
+        }).then((user) => {
+            Axios.put(`/api/${user.data.username}`, {
+                "comment": [...comments, newComment]
+            }).then((result) => getComments())
+        })
     }
-    const Array = ["Hello", "Good bye"]
     return(
-        <Comments comments={comments} handleSubmit={handleNewComment}/>
+        <Comments comments={comments} handleComment={handleSetComment} handleSubmit={handleNewComment}/>
     );
     
 }
