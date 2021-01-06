@@ -7,7 +7,7 @@ const styles = {
   heading: {
       margin: 130
   },
-  html: {
+  fix: {
     height: "100vh",
   }
 }
@@ -28,7 +28,7 @@ export default function Register() {
         }).then((res) => {console.log(res); window.location.replace("/login");});
       };
     return (
-      <div style={styles.html}>
+      <div style={styles.fix}>
         <Grid centered columns={2}>
           <Container style={styles.heading}>
             <FormA 

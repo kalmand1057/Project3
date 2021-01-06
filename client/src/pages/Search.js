@@ -5,13 +5,13 @@ const styles = {
     heading: {
         margin: 130
     },
-    html: {
+    fix: {
         height: "100vh",
     }
 }
 
 const Search = () => (
-    <div style={styles.html}>
+    <div style={styles.fix}>
     <Grid centered columns={2}>
         <Container style={styles.heading}>
         <Header as='h1' inverted>Search</Header>

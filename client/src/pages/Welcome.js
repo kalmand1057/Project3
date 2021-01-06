@@ -10,13 +10,13 @@ const styles = {
         fontSize: 35,
         textShadow: "0 0 3px #696969"
     },
-    html: {
+    fix: {
         height: "100vh",
     }
 }
 
 const Welcome = () => (
-    <div style={styles.html}>
+    <div style={styles.fix}>
     <Grid centered columns={2}>
         <Container style={styles.heading}>
         <Header as='h1' inverted style={styles.big}>Welcome</Header>

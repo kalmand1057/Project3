@@ -10,7 +10,7 @@ const styles = {
         fontSize: 60,
         textShadow: "0 0 3px #696969"
     },
-    html: {
+    fix: {
         height: "100vh",
       }
 }
@@ -23,7 +23,7 @@ export default function Home() {
     })
 
     return (
-    <div style={styles.html}>
+    <div style={styles.fix}>
         <Grid centered>
             <Container style={styles.heading}>
             <animated.div style={props}>

@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from "react";
 import Conditions from "../Conditions/Conditions";
 import axios from "axios";
-import { Form } from 'semantic-ui-react';
+import { Form, Header } from 'semantic-ui-react';
 
 const styles = {
     box: {
         opacity: 0.7
-    }
+    },
+    define: {
+      textShadow: "0 0 3px #696969",
+      textAlign: "center"
+  },
+  space: {
+      marginLeft: "10px"
+  }
 }
 
 const Forecast = (props) => {
@@ -79,7 +86,7 @@ const Forecast = (props) => {
 
     return (
         <div>
-            <h2 style={{textAlign: "center"}}>Current Weather Conditions</h2>
+            <Header as='h1' inverted dividing style={styles.define}>Current Weather Conditions</Header>
 
             <Conditions
                 responseObj={responseObj}
@@ -108,7 +115,7 @@ const Forecast = (props) => {
                         <p style={{color: "white"}}>Celcius</p>
                     </label>
                     
-                    <button type="submit" className="ui inverted button">Change Temperature Units</button>
+                    <button type="submit" className="ui inverted button" style={styles.space}>Change Temperature Units</button>
                 </Form.Field>
 
             </Form>

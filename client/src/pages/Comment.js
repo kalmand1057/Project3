@@ -7,9 +7,14 @@ const styles = {
     heading: {
         marginTop: 140
     },
-    html: {
+    fix: {
         height: "100vh",
-      }
+      },
+      big: {
+        fontSize: 35,
+        textShadow: "0 0 3px #696969",
+        textAlign: "centered"
+    },
 }
 
 export default function Comment () {
@@ -53,11 +58,12 @@ export default function Comment () {
         })
     }
     return(
-        <div style={styles.html}>
+        <div style={styles.fix}>
             <Grid centered>
-                    <Container style={styles.heading}>
-                        <Comments comments={comments} handleComment={handleSetComment} handleSubmit={handleNewComment}/>
-                    </Container>
+                <Container centered style={styles.heading}>
+                    <Header as='h1' inverted dividing style={styles.big}>Comments</Header>
+                    <Comments comments={comments} handleComment={handleSetComment} handleSubmit={handleNewComment}/>
+                </Container>
             </Grid>
         </div>
     );

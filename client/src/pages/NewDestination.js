@@ -5,11 +5,20 @@ import { Button, Form, Header, Grid, Container } from 'semantic-ui-react'
 
 const styles = {
   heading: {
-      margin: 120
+      margin: 100
   },
   big: {
       fontSize: 35,
       textShadow: "0 0 3px #696969"
+  },
+  fix: {
+    height: "100vh"
+  },
+  box: {
+    opacity: 0.7
+  },
+  color: {
+    color: "white"
   }
 }
 
@@ -48,7 +57,7 @@ const NewDestination = () => {
    <div>
      <Grid centered columns={2}>
       <Container style={styles.heading}>
-        <Header as='h1' inverted>Select Your Destination!</Header>
+        <Header as='h1' inverted style={styles.big}>Set Your Destination!</Header>
         <Form onSubmit={handleSetDestination}>
           <Form.Field>
             <input 
@@ -57,16 +66,28 @@ const NewDestination = () => {
             maxLength="50"
             value={city}
             onChange={handleSetCity}
+            style={styles.box}
             />
           </Form.Field>
           <Button inverted type='submit'>Bon Voyage!</Button>
         </Form>
-        <div>
-            <input type="number" name="month" placeHolder="00" onChange={handleSetDate}/>
-            <input type="number" name="day" placeHolder="00" onChange={handleSetDate}/>
-            <input type="number" name="year" placeHolder="0000" onChange={handleSetDate}/>
-        </div>
-        <Header as='h2' inverted>Research Your Destination Here!</Header>
+        <Form>
+          <Form.Group widths="equal">
+            <Form.Field>
+              <label style={styles.color}>Month</label>
+              <input type="number" name="month" placeHolder="00" onChange={handleSetDate} style={styles.box}/>
+            </Form.Field>
+            <Form.Field>
+              <label style={styles.color}>Day</label>
+              <input type="number" name="day" placeHolder="00" onChange={handleSetDate} style={styles.box}/>
+            </Form.Field>
+            <Form.Field>
+            <label style={styles.color}>Year</label>
+              <input type="number" name="year" placeHolder="0000" onChange={handleSetDate} style={styles.box}/>
+            </Form.Field>
+          </Form.Group>
+        </Form>
+        <Header as='h2' inverted style={styles.big}>Research Your Destination Here!</Header>
         <Wiki>
         </Wiki>
       </Container>

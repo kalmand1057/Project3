@@ -8,9 +8,9 @@ const styles = {
         color: "white"
     },
     heading: {
-        margin: 70
+        margin: 90
     },
-    html: {
+    fix: {
         height: "100vh",
     },
     big: {
@@ -85,44 +85,44 @@ export default function Budget() {
         })
     }
     return (
-        <div style={styles.html}>
-           <div style={styles.heading}>
-           <Header as='h1' inverted dividing style={styles.big}>Expenses</Header>
-           <div className="ui stackable two column centered grid">
-            <div className="two column row centered">
-            <div className="column">
-                <Form>
-                    <Form.Group widths="equal">
-                    <Form.Field>
-                        <p style={styles.color}>Increase Max Budget</p>
-                        <input type="number" name="maxBudget" onChange={handleSetBudget} placeholder="0.00" style={styles.box} />
+    <div style={styles.fix}>
+        <div style={styles.heading}>
+            <div className="ui stackable two column centered grid">
+                <Header as='h1' inverted dividing style={styles.big}>Budget</Header>
+                <div className="two column row centered">
+                    <div className="column">
+                        <Form>
+                            <Form.Group widths="equal">
+                                <Form.Field>
+                                    <label style={styles.color}>Increase Max Budget</label>
+                                    <input type="number" name="maxBudget" onChange={handleSetBudget} placeholder="0.00" style={styles.box} />
+                                    
+                                    <label style={styles.color}>Airfare*</label>
+                                    <input type="number" name="airFare" onChange={handleSetBudget} placeholder="0.00" style={styles.box} />
+                                
+                                    <label style={styles.color}>Dining*</label>
+                                    <input type="number" name="dining" onChange={handleSetBudget} placeholder="0.00" style={styles.box} />
+                                
+                                    <label style={styles.color}>Lodging*</label>
+                                    <input type="number" name="lodging" onChange={handleSetBudget} placeholder="0.00" style={styles.box} />
+                                    
+                                    <label style={styles.color}>Miscellaneous Purchases*</label>
+                                    <input type="number" name="misc" onChange={handleSetBudget} placeholder="0.00" style={styles.box} />
+                                    <p style={styles.color}>*These values subtract from your Max Budget</p>
+                                </Form.Field>
+                            </Form.Group>
+                        </Form>
+                        <button className="ui inverted button"  onClick={handleUpdate}>Submit</button>
+                    </div>
 
-                        <p style={styles.color}>Airfare*</p>
-                        <input type="number" name="airFare" onChange={handleSetBudget} placeholder="0.00" />
-                       
-                        <p style={styles.color}>Dining*</p>
-                        <input type="number" name="dining" onChange={handleSetBudget} placeholder="0.00" />
-                       
-                        <p style={styles.color}>Lodging*</p>
-                        <input type="number" name="lodging" onChange={handleSetBudget} placeholder="0.00" />
-                        
-                        <p style={styles.color}>Miscellaneous Purchases*</p>
-                        <input type="number" name="misc" onChange={handleSetBudget} placeholder="0.00" />
-                        <p style={styles.color}>*These values subtract from your Max Budget</p>
-                    </Form.Field>
-                    </Form.Group>
-                </Form>
-                <button className="ui inverted button"  onClick={handleUpdate}>Submit</button>
-            </div>
-
-            <div className="column">
-                <div style={styles.graph}>
-                <BudgetChart budget={userBudget} remaining={userBudget.maxBudget - userBudget.airFare - userBudget.dining - userBudget.lodging - userBudget.misc} />
+                    <div className="column">
+                        <div style={styles.graph}>
+                            <BudgetChart budget={userBudget} remaining={userBudget.maxBudget - userBudget.airFare - userBudget.dining - userBudget.lodging - userBudget.misc} />
+                        </div>
+                    </div>
                 </div>
             </div>
-            </div>
         </div>
-           </div>
-        </div>
+    </div>
     )
 }
