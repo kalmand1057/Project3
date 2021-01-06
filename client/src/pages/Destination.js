@@ -65,14 +65,14 @@ export default function Destination() {
           <Forecast city={userInfo.city}/>
          </div>
          <div className="column">
-          <Header inverted style={{textAlign: "center"}}>City Map</Header>
+          <Header as="h2" inverted style={{textAlign: "center"}}>City Map</Header>
           <GoogleMap city={userInfo.city}/>
          </div>
        </div>
 
        <div className="two column row">
          <div className="column">
-          <Header inverted style={{textAlign: "center"}}>Budget for Trip</Header>
+          <Header as="h2" inverted style={{textAlign: "center"}}>Budget for Trip</Header>
           <Link to="/budget">
             {userInfo.budget.maxBudget ? 
               <BudgetChart budget={userInfo.budget} remaining={userInfo.budget.maxBudget - userInfo.budget.airFare - userInfo.budget.dining - userInfo.budget.lodging - userInfo.budget.misc}/>
@@ -84,7 +84,7 @@ export default function Destination() {
           </Link>
          </div>
          <div className="column">
-         <Header inverted style={{textAlign: "center"}}>Notes</Header>
+         <Header as="h2" inverted style={{textAlign: "center"}}>Notes</Header>
         <Link to="/comment">
           {userInfo.comment.length ? 
                 <>

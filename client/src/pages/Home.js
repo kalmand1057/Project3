@@ -4,12 +4,15 @@ import {useSpring, animated } from 'react-spring';
 
 const styles = {
     heading: {
-        margin: 250
+        marginTop: 180
     },
     big: {
         fontSize: 60,
         textShadow: "0 0 3px #696969"
-    }
+    },
+    html: {
+        height: "100vh",
+      }
 }
 
 export default function Home() {
@@ -20,7 +23,7 @@ export default function Home() {
     })
 
     return (
-    <div>
+    <div style={styles.html}>
         <Grid centered>
             <Container style={styles.heading}>
             <animated.div style={props}>

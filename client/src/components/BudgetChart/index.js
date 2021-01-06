@@ -6,7 +6,7 @@ export default function BudgetChart(props) {
     return(
         <div style={{background: "rgba(128, 128, 128, 0.5)", width: "30rem", borderRadius: ".5rem"}}>
             <Chart
-            width={'500px'}
+            width={'450px'}
             height={'300px'}
             chartType="PieChart"
             loader={<div>Loading Chart</div>}

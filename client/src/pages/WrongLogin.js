@@ -4,7 +4,7 @@ import { Container, Grid, Header } from 'semantic-ui-react';
 
 const styles = {
     heading: {
-        margin: 230
+        margin: 130
     },
     big: {
         fontSize: 35,
@@ -12,11 +12,14 @@ const styles = {
     },
     shadow: {
         textShadow: "0 0 3px #696969"
+    },
+    html: {
+        height: "100vh",
     }
 }
 
 const WrongLogin = () => (
-    <div>
+    <div style={styles.html}>
     <Grid centered columns={2}>
         <Container style={styles.heading}>
         <Header as='h1' inverted style={styles.big}>You are Not Logged In!</Header>

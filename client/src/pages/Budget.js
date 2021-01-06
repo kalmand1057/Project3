@@ -16,6 +16,12 @@ const styles = {
     big: {
         fontSize: 35,
         textShadow: "0 0 3px #696969"
+    },
+    box: {
+        opacity: 0.7
+    },
+    graph: {
+        padding: 30
     }
 }
 
@@ -80,15 +86,16 @@ export default function Budget() {
     }
     return (
         <div style={styles.html}>
-            <div className="ui stackable two column centered grid" style={styles.heading}>
-            <Header as='h1' inverted style={styles.big}>Expenses</Header>
+           <div style={styles.heading}>
+           <Header as='h1' inverted dividing style={styles.big}>Expenses</Header>
+           <div className="ui stackable two column centered grid">
             <div className="two column row centered">
             <div className="column">
                 <Form>
                     <Form.Group widths="equal">
                     <Form.Field>
                         <p style={styles.color}>Increase Max Budget</p>
-                        <input type="number" name="maxBudget" onChange={handleSetBudget} placeholder="0.00" />
+                        <input type="number" name="maxBudget" onChange={handleSetBudget} placeholder="0.00" style={styles.box} />
 
                         <p style={styles.color}>Airfare*</p>
                         <input type="number" name="airFare" onChange={handleSetBudget} placeholder="0.00" />
@@ -105,15 +112,17 @@ export default function Budget() {
                     </Form.Field>
                     </Form.Group>
                 </Form>
-                
                 <button className="ui inverted button"  onClick={handleUpdate}>Submit</button>
             </div>
 
             <div className="column">
-            <BudgetChart budget={userBudget} remaining={userBudget.maxBudget - userBudget.airFare - userBudget.dining - userBudget.lodging - userBudget.misc}/>
+                <div style={styles.graph}>
+                <BudgetChart budget={userBudget} remaining={userBudget.maxBudget - userBudget.airFare - userBudget.dining - userBudget.lodging - userBudget.misc} />
+                </div>
             </div>
             </div>
         </div>
+           </div>
         </div>
     )
 }
