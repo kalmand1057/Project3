@@ -30,9 +30,7 @@ export default function Budget() {
 
     }, [])
     
-    // useEffect(() => {
-    //     getUserBudget();
-    // }, [userBudget])
+
 
     const handleSetBudget = (e) => {
         const { name, value } = e.target;

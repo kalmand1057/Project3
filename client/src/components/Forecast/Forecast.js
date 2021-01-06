@@ -75,15 +75,6 @@ const Forecast = (props) => {
         <div>
             <h2 style={{textAlign: "center"}}>Current Weather Conditions</h2>
             <Form onSubmit={getForecast}>
-                {/* <Form.Field>
-                <input
-                    type="text"
-                    placeholder="Enter City"
-                    maxLength="50"
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
-                    />
-                </Form.Field> */}
                 <Form.Field inline>
                     <label>
                         <input

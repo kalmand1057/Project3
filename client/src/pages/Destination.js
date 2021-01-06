@@ -7,7 +7,7 @@ import CommentList from "../components/Comments/CommentList"
 import { Header, Container, Button } from 'semantic-ui-react';
 import GoogleMap from "../components/GoogleMap/GoogleMap";
 import Axios from "axios";
-// import user from "../../../models/user";
+
 
 const styles = {
   bkgd: {

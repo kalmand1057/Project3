@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Container, Grid, Header } from 'semantic-ui-react';
+import { Button, Header } from 'semantic-ui-react';
 
 function CommentAdd(props) {
     
