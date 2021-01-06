@@ -29,8 +29,9 @@ const NewDestination = () => {
       url: `/api/user`
     }).then((user) => {
         Axios.put(`/api/${user.data.username}`, {
-            "city": city
-        }).then((result) => console.log("success"))
+            "city": city,
+            "date": date
+        }).then((result) => window.location.replace("/destinations"))
     })
   }
 
@@ -41,19 +42,6 @@ const NewDestination = () => {
     } else {
         setDate({...date, [name]: value});
     }
-  }
-
-  const handleDateUpdate = (e) => {
-      e.preventDefault();
-      Axios({
-          method: "GET",
-          withCredentials: true,
-          url: `/api/user`
-      }).then((user) => {
-          Axios.put(`/api/${user.data.username}`, {
-              "date": date
-          }).then((result) => console.log("success"))
-      })
   }
 
  return (
@@ -77,8 +65,6 @@ const NewDestination = () => {
             <input type="number" name="month" placeHolder="00" onChange={handleSetDate}/>
             <input type="number" name="day" placeHolder="00" onChange={handleSetDate}/>
             <input type="number" name="year" placeHolder="0000" onChange={handleSetDate}/>
-            <br/>
-            <button onClick={handleDateUpdate}>Set Date</button>
         </div>
         <Header as='h2' inverted>Research Your Destination Here!</Header>
         <Wiki>
