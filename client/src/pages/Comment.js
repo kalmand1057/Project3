@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import Axios from "axios";
 import Comments from "../components/Comments"
-import { Button, Container, Grid, Header } from 'semantic-ui-react';
+import { Container, Grid, Header } from 'semantic-ui-react';
 
 const styles = {
     heading: {
         marginTop: 140
     },
-    html: {
+    fix: {
         height: "100vh",
-      }
+      },
+      big: {
+        fontSize: 35,
+        textShadow: "0 0 3px #696969",
+        textAlign: "centered"
+    },
 }
 
 export default function Comment () {
@@ -28,7 +33,7 @@ export default function Comment () {
             method: "GET",
             withCredentials: true,
             url: "/api/user",
-          }).then((res) => {
+        }).then((res) => {
               const user = res.data.username
               Axios({
                 method: "GET",
@@ -38,8 +43,8 @@ export default function Comment () {
             .then((result) => {
                 setComments(result.data.comment)
             })
-          })
-      }
+        })
+    }
 
     const handleNewComment = () => {
         Axios({
@@ -53,11 +58,12 @@ export default function Comment () {
         })
     }
     return(
-        <div style={styles.html}>
+        <div style={styles.fix}>
             <Grid centered>
-                    <Container style={styles.heading}>
-                        <Comments comments={comments} handleComment={handleSetComment} handleSubmit={handleNewComment}/>
-                    </Container>
+                <Container centered style={styles.heading}>
+                    <Header as='h1' inverted dividing style={styles.big}>Itinerary/Notes</Header>
+                    <Comments comments={comments} handleComment={handleSetComment} handleSubmit={handleNewComment}/>
+                </Container>
             </Grid>
         </div>
     );

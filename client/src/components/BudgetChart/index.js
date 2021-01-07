@@ -1,13 +1,14 @@
 import React from "react";
 import Chart from "react-google-charts";
 
+
+
 export default function BudgetChart(props) {
-    console.log(props.budget)
     return(
-        <div style={{background: "rgba(128, 128, 128, 0.5)", width: "30rem", borderRadius: ".5rem"}}>
+        <div style={{background: "rgba(255, 255, 255, 0.7)", width: "100%", borderRadius: ".5rem"}}>
             <Chart
-            width={'450px'}
-            height={'300px'}
+            width={'100%'}
+            height={'100%'}
             chartType="PieChart"
             loader={<div>Loading Chart</div>}
             data={[
