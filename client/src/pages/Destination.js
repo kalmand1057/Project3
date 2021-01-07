@@ -15,7 +15,14 @@ const styles = {
     color: 'white'
   },
   heading: {
-    margin: 70
+    margin: 90
+  },
+  fix: {
+      height: "100vh",
+  },
+  define: {
+    textShadow: "0 0 3px #696969",
+    textAlign: "center"
   }
 }
 
@@ -49,64 +56,63 @@ export default function Destination() {
    <div className="App">
      <Container style={styles.heading}>
        {userInfo.city === "none" ? 
-       <>
-        <Header as='h1' inverted >Please Set your City and Day first!</Header>
-        <Link to="/newdestination">
-          <Button inverted>Click here!</Button>
-        </Link>
-       </>
-       :
-       <>
-    <Jumbotron month={month[parseInt(userInfo.date.month) - 1]} day={userInfo.date.day} year={userInfo.date.year}/>
-     <div className="ui stackable two column centered grid">
-
-       <div className="two column row">
-         <div className="column">
-          <Forecast city={userInfo.city}/>
-         </div>
-         <div className="column">
-          <Header as="h2" inverted style={{textAlign: "center"}}>City Map</Header>
-          <GoogleMap city={userInfo.city}/>
-         </div>
-       </div>
-
-       <div className="two column row">
-         <div className="column">
-          <Header as="h2" inverted style={{textAlign: "center"}}>Budget for Trip</Header>
-          <Link to="/budget">
-            {userInfo.budget.maxBudget ? 
-              <BudgetChart budget={userInfo.budget} remaining={userInfo.budget.maxBudget - userInfo.budget.airFare - userInfo.budget.dining - userInfo.budget.lodging - userInfo.budget.misc}/>
-              :
-              <div style={{textAlign: "center", height: "10rem"}}>
-                <Button inverted>Set and Initial budget</Button>
+        <>
+          <div style={styles.fix}>
+            <Header as='h1' inverted style={styles.define}>Please Set your City and Day first!</Header>
+            <Link to="/newdestination">
+              <Button inverted>Click here!</Button>
+            </Link>
+          </div>
+        </>
+        :
+        <>
+          <Jumbotron month={month[parseInt(userInfo.date.month) - 1]} day={userInfo.date.day} year={userInfo.date.year}/>
+          <div className="ui stackable two column centered grid">
+            <div className="two column row">
+              <div className="column">
+                <Forecast city={userInfo.city}/>
               </div>
-            }
-          </Link>
-         </div>
-         <div className="column">
-         <Header as="h2" inverted style={{textAlign: "center"}}>Notes</Header>
-        <Link to="/comment">
-          {userInfo.comment.length ? 
-                <>
-                  {comments.map(comment => (
-                      <CommentList body={comment}/> 
-                    ))
-                  }
-                </>
-                :
-                <div style={{textAlign: "center", height: "10rem"}}>
-                  <Button inverted>Set Notes</Button>
-                </div>
-          }
+              <div className="column">
+                <Header as="h2" inverted dividing style={styles.define}>City Map</Header>
+                <GoogleMap city={userInfo.city}/>
+              </div>
+            </div>
 
-        </Link>
-         </div>
-       </div>
-     </div>
-     </>
-     }
-     </Container>
- 
+            <div className="two column row">
+              <div className="column">
+                <Header as="h2" inverted dividing style={styles.define}>Budget for Trip</Header>
+                <Link to="/budget">
+                  {userInfo.budget.maxBudget ? 
+                    <BudgetChart budget={userInfo.budget} remaining={userInfo.budget.maxBudget - userInfo.budget.airFare - userInfo.budget.dining - userInfo.budget.lodging - userInfo.budget.misc}/>
+                    :
+                    <div style={{textAlign: "center", height: "10rem"}}>
+                      <Button inverted>Set and Initial budget</Button>
+                    </div>
+                  }
+                </Link>
+              </div>
+              <div className="column">
+                <Header as="h2" inverted dividing style={styles.define}>Itinerary/Notes</Header>
+                <Link to="/comment">
+                  {userInfo.comment.length ? 
+                    <>
+                      {comments.map(comment => (
+                          <CommentList body={comment}/> 
+                        ))
+                      }
+                    </>
+                    :
+                    <div style={{textAlign: "center", height: "10rem"}}>
+                      <Button inverted>Set Notes</Button>
+                    </div>
+                  }
+                </Link>
+              </div>
+            </div>
+          </div>
+      </>
+    }
+    </Container>
    </div>
  );
  }

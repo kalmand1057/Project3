@@ -11,7 +11,6 @@ import { myContext } from "./utils/LoginContext";
 import Destination from "./pages/Destination";
 import NewDestination from "./pages/NewDestination";
 import Budget from "./pages/Budget";
-import Current from "./pages/Current";
 import Footer from "./components/Footer";
 import Comment from "./pages/Comment";
 import CurrentlyLogged from "./pages/CurrentlyLogged";
@@ -35,9 +34,6 @@ function App() {
           </Route>
           <Route exact path="/newdestination">
             <NewDestination />
-          </Route>
-          <Route exact path="/current">
-            <Current />
           </Route>
           <Route exact path="/destinations">
             <Destination />
