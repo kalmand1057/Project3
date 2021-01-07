@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Axios from "axios";
 import Comments from "../components/Comments"
-import { Button, Container, Grid, Header } from 'semantic-ui-react';
+import { Container, Grid, Header } from 'semantic-ui-react';
 
 const styles = {
     heading: {
@@ -33,7 +33,7 @@ export default function Comment () {
             method: "GET",
             withCredentials: true,
             url: "/api/user",
-          }).then((res) => {
+        }).then((res) => {
               const user = res.data.username
               Axios({
                 method: "GET",
@@ -43,8 +43,8 @@ export default function Comment () {
             .then((result) => {
                 setComments(result.data.comment)
             })
-          })
-      }
+        })
+    }
 
     const handleNewComment = () => {
         Axios({
@@ -61,7 +61,7 @@ export default function Comment () {
         <div style={styles.fix}>
             <Grid centered>
                 <Container centered style={styles.heading}>
-                    <Header as='h1' inverted dividing style={styles.big}>Comments</Header>
+                    <Header as='h1' inverted dividing style={styles.big}>Itinerary/Notes</Header>
                     <Comments comments={comments} handleComment={handleSetComment} handleSubmit={handleNewComment}/>
                 </Container>
             </Grid>

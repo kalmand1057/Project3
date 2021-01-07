@@ -54,9 +54,9 @@ const NewDestination = () => {
   }
 
  return (
-   <div>
+   <div style={styles.heading}>
      <Grid centered columns={2}>
-      <Container style={styles.heading}>
+      <Container>
         <Header as='h1' inverted style={styles.big}>Set Your Destination!</Header>
         <Form onSubmit={handleSetDestination}>
           <Form.Field>
@@ -69,27 +69,26 @@ const NewDestination = () => {
             style={styles.box}
             />
           </Form.Field>
-          <Button inverted type='submit'>Bon Voyage!</Button>
         </Form>
         <Form>
           <Form.Group widths="equal">
             <Form.Field>
               <label style={styles.color}>Month</label>
-              <input type="number" name="month" placeHolder="00" onChange={handleSetDate} style={styles.box}/>
+              <input type="number" name="month" placeHolder="MM" onChange={handleSetDate} style={styles.box}/>
             </Form.Field>
             <Form.Field>
               <label style={styles.color}>Day</label>
-              <input type="number" name="day" placeHolder="00" onChange={handleSetDate} style={styles.box}/>
+              <input type="number" name="day" placeHolder="DD" onChange={handleSetDate} style={styles.box}/>
             </Form.Field>
             <Form.Field>
-            <label style={styles.color}>Year</label>
-              <input type="number" name="year" placeHolder="0000" onChange={handleSetDate} style={styles.box}/>
+              <label style={styles.color}>Year</label>
+              <input type="number" name="year" placeHolder="YYYY" onChange={handleSetDate} style={styles.box}/>
             </Form.Field>
           </Form.Group>
         </Form>
+        <Button inverted type='submit'>Bon Voyage!</Button>
         <Header as='h2' inverted style={styles.big}>Research Your Destination Here!</Header>
-        <Wiki>
-        </Wiki>
+        <Wiki />
       </Container>
      </Grid>
    </div>

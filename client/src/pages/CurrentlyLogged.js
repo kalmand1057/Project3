@@ -22,17 +22,17 @@ const CurrentlyLogged = () => (
     <div style={styles.fix}>
     <Grid centered columns={2}>
         <Container style={styles.heading}>
-        <Header as='h1' inverted style={styles.big}>You are Currently Logged In!</Header>
-        <Header as='h3' inverted style={styles.shadow}>You may logout or redirect</Header>
-        <Link to="/welcome">
-            <button className="ui inverted button">Welcome</button>
-        </Link>
-        <Link to="/destinations">
-            <button className="ui inverted button">Destination</button>
-        </Link>
-        <Link to="/">
-            <button className="ui inverted button">Home</button>
-        </Link>
+            <Header as='h1' inverted style={styles.big}>You are Currently Logged In!</Header>
+            <Header as='h3' inverted style={styles.shadow}>You may logout or redirect</Header>
+            <Link to="/welcome">
+                <button className="ui inverted button">Welcome</button>
+            </Link>
+            <Link to="/destinations">
+                <button className="ui inverted button">Destination</button>
+            </Link>
+            <Link to="/">
+                <button className="ui inverted button">Home</button>
+            </Link>
         </Container>
     </Grid>
     </div>

@@ -1,5 +1,4 @@
 import React from 'react'
-import { Button, Header } from 'semantic-ui-react';
 
 const styles = {
     box: {
@@ -12,15 +11,15 @@ const styles = {
 
 function CommentList (props) {
 
-        return(
-            <div style={styles.box}>
-                <div className="comment card mb-2">
-                    <div className="card-body" style={styles.font}>
-                        {props.body}
-                    </div>
+    return(
+        <div style={styles.box}>
+            <div className="comment card mb-2">
+                <div className="card-body" style={styles.font}>
+                    {props.body}
                 </div>
             </div>
-        );
+        </div>
+    );
     
 }
 

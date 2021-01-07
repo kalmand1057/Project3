@@ -12,18 +12,25 @@ const styles = {
     },
     fix: {
         height: "100vh",
+    },
+    space: {
+        margin: "20px"
     }
 }
 
 const Welcome = () => (
     <div style={styles.fix}>
-    <Grid centered columns={2}>
-        <Container style={styles.heading}>
-        <Header as='h1' inverted style={styles.big}>Welcome</Header>
-        <Button inverted href="/destinations">Current Trip</Button>
-        <Button inverted href="/newdestination">New Destination</Button>
-        </Container>
-    </Grid>
+        <Grid centered columns={2}>
+            <Container style={styles.heading}>
+                <Header as='h1' inverted style={styles.big}>Welcome</Header>
+                <div style={styles.space}>
+                    <Button inverted href="/destinations">Current Trip</Button>
+                </div>
+                <div style={styles.space}>
+                    <Button inverted href="/newdestination">New Destination</Button>
+                </div>
+            </Container>
+        </Grid>
     </div>
 );
 

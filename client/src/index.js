@@ -21,7 +21,7 @@ const styles = {
 ReactDOM.render(
     <LoginContext>
         <div style={styles.html}>
-        <App />
+            <App />
         </div>
     </LoginContext>, 
     document.getElementById("root")

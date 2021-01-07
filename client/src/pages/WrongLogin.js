@@ -20,21 +20,21 @@ const styles = {
 
 const WrongLogin = () => (
     <div style={styles.fix}>
-    <Grid centered columns={2}>
-        <Container style={styles.heading}>
-        <Header as='h1' inverted style={styles.big}>You are Not Logged In!</Header>
-        <Header as='h3' inverted style={styles.shadow}>Your Email or Password may be incorrect</Header>
-        <Link to="/login">
-            <button className="ui inverted button">Log in</button>
-        </Link>
-        <Link to="/register">
-            <button className="ui inverted button">Register</button>
-        </Link>
-        <Link to="/">
-            <button className="ui inverted button">Home</button>
-        </Link>
-        </Container>
-    </Grid>
+        <Grid centered columns={2}>
+            <Container style={styles.heading}>
+                <Header as='h1' inverted style={styles.big}>You are Not Logged In!</Header>
+                <Header as='h3' inverted style={styles.shadow}>Your Email or Password may be incorrect</Header>
+                <Link to="/login">
+                    <button className="ui inverted button">Log in</button>
+                </Link>
+                <Link to="/register">
+                    <button className="ui inverted button">Register</button>
+                </Link>
+                <Link to="/">
+                    <button className="ui inverted button">Home</button>
+                </Link>
+            </Container>
+        </Grid>
     </div>
 );
 

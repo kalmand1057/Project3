@@ -26,10 +26,10 @@ export default function Home() {
     <div style={styles.fix}>
         <Grid centered>
             <Container style={styles.heading}>
-            <animated.div style={props}>
-                <Header as='h1' inverted style={styles.big}>Start your adventure with us.</Header>
-            </animated.div>
-                <Button inverted href="/register">START HERE</Button>
+                <animated.div style={props}>
+                    <Header as='h1' inverted style={styles.big}>Start your adventure with us.</Header>
+                </animated.div>
+                    <Button inverted href="/register">START HERE</Button>
             </Container>
         </Grid>
     </div>
