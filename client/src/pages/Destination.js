@@ -4,7 +4,7 @@ import BudgetChart from "../components/BudgetChart";
 import Forecast from "../components/Forecast/Forecast";
 import Jumbotron from "../components/Jumbotron/Jumbotron"
 import CommentList from "../components/Comments/CommentList"
-import { Header, Container, Button } from 'semantic-ui-react';
+import { Header, Container, Button, Grid } from 'semantic-ui-react';
 import GoogleMap from "../components/GoogleMap/GoogleMap";
 import Axios from "axios";
 
@@ -58,10 +58,16 @@ export default function Destination() {
        {userInfo.city === "none" ? 
         <>
           <div style={styles.fix}>
-            <Header as='h1' inverted style={styles.define}>Please Set your City and Day first!</Header>
-            <Link to="/newdestination">
-              <Button inverted>Click here!</Button>
-            </Link>
+            <Grid centered columns={2}>
+              <Container style={styles.heading}>
+                <Header as='h1' inverted style={styles.define}>Please Set your City and Day first!</Header>
+                <div>
+                  <Link to="/newdestination">
+                    <Button inverted centered>Click here!</Button>
+                  </Link>
+                </div>
+              </Container>
+            </Grid>
           </div>
         </>
         :
