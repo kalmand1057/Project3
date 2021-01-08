@@ -21,6 +21,7 @@ height: 100%;
   @media only screen and (max-width: 600px) {
     .search {
         margin-left: -50%;
-        width: 450px;
+        width: 340px;
+        height: 500px;
     }
   }

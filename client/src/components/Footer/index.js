@@ -9,7 +9,7 @@ function Footer() {
         <section className="footer">
           <div className="footer-wrap">
             <small className="website-rights">Getaway Guru © 2020</small>
-            <div className="contacts">
+            <div className="contacts ui stackable centered grid">
               <h1>Contact Us</h1>
               <a className="email" href="mailto:getawaygury2020@gmail.com">getawayguru2020@gmail.com</a>
             </div>
