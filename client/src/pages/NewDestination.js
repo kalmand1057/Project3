@@ -58,7 +58,7 @@ const NewDestination = () => {
      <Grid centered columns={2}>
       <Container>
         <Header as='h1' inverted style={styles.big}>Set Your Destination!</Header>
-        <Form onSubmit={handleSetDestination}>
+        <Form>
           <Form.Field>
             <input 
             type="text"
@@ -86,7 +86,7 @@ const NewDestination = () => {
             </Form.Field>
           </Form.Group>
         </Form>
-        <Button inverted type='submit'>Bon Voyage!</Button>
+        <Button inverted onClick={handleSetDestination}>Bon Voyage!</Button>
         <Header as='h2' inverted style={styles.big}>Research Your Destination Here!</Header>
         <Wiki />
       </Container>

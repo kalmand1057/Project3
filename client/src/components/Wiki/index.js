@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.css";
 
+
 export default function Wiki(){
     return(
         <div className="search">
