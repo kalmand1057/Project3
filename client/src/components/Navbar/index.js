@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, Component } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { myContext} from "../../utils/LoginContext";
 import Axios from "axios";
@@ -6,29 +6,19 @@ import "./Navbar.css";
 
 function Navbar() {
   const [click, setClick] = useState(false);
-  const [button, setButton] = useState(true);
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
   const ctx = useContext(myContext)
 
-  const showButton = () => {
-    if (window.innerWidth <= 960) {
-      setButton(false);
-    } else {
-      setButton(true);
-    }
-  };
+
   const logout = () => {
     Axios.get("/logout", {
       withCredentials: true
     }).then(window.location.replace("/"))
   }
-  useEffect(() => {showButton();}, []);
-
-  window.addEventListener("resize", showButton);
-
+ 
   return (
     <>
       <nav className="navbar">
@@ -59,15 +49,6 @@ function Navbar() {
                     onClick={closeMobileMenu}
                   >
                     Destinations
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link
-                    to="/services"
-                    className="nav-links"
-                    onClick={closeMobileMenu}
-                  >
-                    Services
                   </Link>
                 </li>
                 <li className="nav-item">

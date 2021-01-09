@@ -5,11 +5,20 @@ import { Button, Form, Header, Grid, Container } from 'semantic-ui-react'
 
 const styles = {
   heading: {
-      margin: 120
+      margin: 100
   },
   big: {
       fontSize: 35,
       textShadow: "0 0 3px #696969"
+  },
+  fix: {
+    height: "100vh"
+  },
+  box: {
+    opacity: 0.7
+  },
+  color: {
+    color: "white"
   }
 }
 
@@ -29,8 +38,9 @@ const NewDestination = () => {
       url: `/api/user`
     }).then((user) => {
         Axios.put(`/api/${user.data.username}`, {
-            "city": city
-        }).then((result) => console.log("success"))
+            "city": city,
+            "date": date
+        }).then((result) => window.location.replace("/destinations"))
     })
   }
 
@@ -43,25 +53,12 @@ const NewDestination = () => {
     }
   }
 
-  const handleDateUpdate = (e) => {
-      e.preventDefault();
-      Axios({
-          method: "GET",
-          withCredentials: true,
-          url: `/api/user`
-      }).then((user) => {
-          Axios.put(`/api/${user.data.username}`, {
-              "date": date
-          }).then((result) => console.log("success"))
-      })
-  }
-
  return (
-   <div className="App">
+   <div style={styles.heading}>
      <Grid centered columns={2}>
-      <Container style={styles.heading}>
-        <Header as='h1' inverted>Select Your Destination!</Header>
-        <Form onSubmit={handleSetDestination}>
+      <Container>
+        <Header as='h1' inverted style={styles.big}>Set Your Destination!</Header>
+        <Form>
           <Form.Field>
             <input 
             type="text"
@@ -69,20 +66,29 @@ const NewDestination = () => {
             maxLength="50"
             value={city}
             onChange={handleSetCity}
+            style={styles.box}
             />
           </Form.Field>
-          <Button inverted type='submit'>Bon Voyage!</Button>
         </Form>
-        <div>
-            <input type="number" name="month" placeHolder="00" onChange={handleSetDate}/>
-            <input type="number" name="day" placeHolder="00" onChange={handleSetDate}/>
-            <input type="number" name="year" placeHolder="0000" onChange={handleSetDate}/>
-            <br/>
-            <button onClick={handleDateUpdate}>Set Date</button>
-        </div>
-        <Header as='h2' inverted>Research Your Destination Here!</Header>
-        <Wiki>
-        </Wiki>
+        <Form>
+          <Form.Group widths="equal">
+            <Form.Field>
+              <label style={styles.color}>Month</label>
+              <input type="number" name="month" placeHolder="MM" onChange={handleSetDate} style={styles.box}/>
+            </Form.Field>
+            <Form.Field>
+              <label style={styles.color}>Day</label>
+              <input type="number" name="day" placeHolder="DD" onChange={handleSetDate} style={styles.box}/>
+            </Form.Field>
+            <Form.Field>
+              <label style={styles.color}>Year</label>
+              <input type="number" name="year" placeHolder="YYYY" onChange={handleSetDate} style={styles.box}/>
+            </Form.Field>
+          </Form.Group>
+        </Form>
+        <Button inverted onClick={handleSetDestination}>Bon Voyage!</Button>
+        <Header as='h2' inverted style={styles.big}>Research Your Destination Here!</Header>
+        <Wiki />
       </Container>
      </Grid>
    </div>

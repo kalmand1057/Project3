@@ -27,6 +27,7 @@
     font-size: 1.5rem;
     display: flex;
     align-items: center;
+    padding-bottom: 15px;
   }
   
   .fa-compass {
